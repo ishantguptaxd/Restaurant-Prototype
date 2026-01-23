@@ -3,29 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Restaurant</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #121212; color: #eee; }
-    header { background: #1a1a1a; color: #fff; text-align: center; padding: 20px; }
-    nav a { margin: 0 15px; color: #fff; text-decoration: none; font-size: 1.1em; }
-    .hero { background: #444; padding: 100px 20px; text-align: center; color: #fff;}
-    .hero h1 { font-size: 3em; margin: 0; }
-    .section { padding: 40px 20px; }
-    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-    .menu-item { border: 1px solid #ddd; padding: 15px; border-radius: 8px; background: #fafafa; }
-    footer { background: #1a1a1a; color: #fff; text-align: center; padding: 15px; }
-  </style>
-</head>
-<body>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #121212;
+    color: #f5f5f5;
+  }
 
-  <header>
-    <h2>The Restaurant</h2>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#menu">Menu</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  header {
+    background: #1e1e1e;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+  }
+
+  nav a {
+    margin: 0 15px;
+    color: #e63946;
+    text-decoration: none;
+    font-size: 1.1em;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  .hero {
+    background: #2a2a2a;
+    padding: 100px 20px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .hero h1 {
+    font-size: 3em;
+    margin: 0;
+  }
+
+  .section {
+    padding: 40px 20px;
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .menu-item {
+    background: #1f1f1f;
+    border: 1px solid #333;
+    padding: 20px;
+    border-radius: 10px;
+    color: #f5f5f5;
+  }
+
+  .menu-item p {
+    color: #bdbdbd;
+  }
+
+  footer {
+    background: #1e1e1e;
+    color: #bdbdbd;
+    text-align: center;
+    padding: 15px;
+  }
+</style>
+
 
   <section class="hero">
     <h1>Welcome to The XYZ Restaurant</h1>
