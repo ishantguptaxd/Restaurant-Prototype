@@ -1,124 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Restaurant Prototype</title>
   <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #fff4e6;   /* warm cream */
-    color: #2b2b2b;        /* dark text */
-  }
+    /* ==== GLOBAL STYLES ==== */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff4e6;   /* warm cream */
+      color: #2b2b2b;        /* dark text */
+    }
 
-  header {
-    background: #7b2d26;   /* deep maroon */
-    color: #ffffff;
-    text-align: center;
-    padding: 20px;
-  }
+    a { text-decoration: none; }
 
-  nav a {
-    margin: 0 15px;
-    color: #e09f3e;        /* golden accent */
-    text-decoration: none;
-    font-size: 1.1em;
-    font-weight: bold;
-  }
+    h2 { margin-bottom: 20px; }
 
-  nav a:hover {
-    text-decoration: underline;
-  }
+    .section { padding: 40px 20px; }
 
-  .hero {
-    background: #f7e1c3;   /* soft warm highlight */
-    padding: 100px 20px;
-    text-align: center;
-    color: #4a1c1c;
-  }
+    /* ==== HEADER ==== */
+    header {
+      background: #7b2d26;  /* deep maroon */
+      color: #ffffff;
+      text-align: center;
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-  .hero h1 {
-    font-size: 3em;
-    margin: 0;
-  }
+    nav a {
+      margin: 0 15px;
+      color: #e09f3e;       /* golden accent */
+      font-weight: bold;
+    }
 
-  .section {
-    padding: 40px 20px;
-  }
+    nav a:hover { text-decoration: underline; }
 
-  .menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-  }
+    /* ==== HERO ==== */
+    .hero {
+      background: #f7e1c3;
+      padding: 100px 20px;
+      text-align: center;
+      color: #4a1c1c;
+    }
 
-  .menu-item {
-    background: #ffffff;
-    border: 1px solid #f0d9b5;
-    padding: 20px;
-    border-radius: 10px;
-  }
+    .hero h1 { font-size: 3em; margin: 0; }
 
-  footer {
-    background: #7b2d26;
-    color: #ffffff;
-    text-align: center;
-    padding: 15px;
-  }
-</style>
+    /* ==== MENU GRID ==== */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
 
+    .menu-item {
+      background: #ffffff;
+      border: 1px solid #f0d9b5;
+      padding: 20px;
+      border-radius: 10px;
+    }
 
+    .menu-item p { margin: 10px 0; }
 
+    /* ==== GALLERY ==== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .gallery-grid img:hover { transform: scale(1.05); }
+
+    /* ==== REVIEWS ==== */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .review-card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .review-card p { font-style: italic; color: #2b2b2b; }
+    .review-card h4 { margin-top: 10px; text-align: right; color: #7b2d26; }
+
+    /* ==== FOOTER ==== */
+    footer {
+      background: #7b2d26;
+      color: #ffffff;
+      text-align: center;
+      padding: 15px;
+    }
+
+    /* ==== RESPONSIVE ==== */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2em; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h2>The Restaurant Prototype</h2>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#highlights">Chef’s Specials</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
   <section class="hero">
-    <h1>Welcome to The XYZ Restaurant</h1>
-    
+    <h1>Welcome to Our Restaurant Prototype</h1>
+    <p>A warm, inviting experience for food lovers</p>
   </section>
 
+  <!-- ABOUT -->
   <section id="about" class="section">
     <h2>About Us</h2>
-    <p>
-      The Restaurant offers a premium dining
-      experience with multi-cuisine food, drinks, and a vibrant atmosphere.
-    </p>
+    <p>This is a demo restaurant website prototype designed to showcase menu items, photos, chef specials, and customer reviews. Perfect for testing layouts or presenting restaurant concepts.</p>
   </section>
 
+  <!-- MENU -->
   <section id="menu" class="section">
-    <h2>Popular Items</h2>
+    <h2>Menu</h2>
     <div class="menu-grid">
       <div class="menu-item">
-        <h3>Chicken Kabab</h3>
-        <p>₹250</p>
+        <h3>Grilled Chicken</h3>
+        <p>Succulent grilled chicken with herbs</p>
+        <p><strong>₹350</strong></p>
       </div>
       <div class="menu-item">
         <h3>Veg Biryani</h3>
-        <p>₹180</p>
+        <p>Aromatic rice with fresh vegetables</p>
+        <p><strong>₹200</strong></p>
       </div>
       <div class="menu-item">
-        <h3>Hakka Noodles</h3>
-        <p>₹220</p>
-      </div>
-      <div class="menu-item">
-        <h3>Cocktails</h3>
-        <p>₹320 onwards</p>
+        <h3>Pasta Alfredo</h3>
+        <p>Creamy pasta with cheese and mushrooms</p>
+        <p><strong>₹250</strong></p>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="section">
-    <h2>Contact</h2>
-    <p><strong>Address:</strong> XXXXXX</p>
-    <p><strong>Phone:</strong> +91 000000000</p>
-    <p><strong>Hours:</strong> X TO Y PM</p>
-    <p>
-      <a >
-        View on Google Maps
-      </a>
-    </p>
+  <!-- CHEF’S SPECIALS -->
+  <section id="highlights" class="section">
+    <h2>Chef’s Specials</h2>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <h3>Seafood Platter</h3>
+        <p>Assorted fresh seafood, chef’s choice</p>
+        <p><strong>₹500</strong></p>
+      </div>
+      <div class="menu-item">
+        <h3>Cocktail Special</h3>
+        <p>Signature drink from our bar</p>
+        <p><strong>₹320</strong></p>
+      </div>
+    </div>
   </section>
 
+  <!-- GALLERY -->
+  <section id="gallery" class="section">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="images/dish1.jpg" alt="Dish 1">
+      <img src="images/dish2.jpg" alt="Dish 2">
+      <img src="images/restaurant_interior.jpg" alt="Interior">
+      <img src="images/dish3.jpg" alt="Dish 3">
+    </div>
+  </section>
+
+  <!-- CUSTOMER REVIEWS -->
+  <section id="reviews" class="section">
+    <h2>Customer Reviews</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <p>"Amazing food and cozy atmosphere!"</p>
+        <h4>- Riya S.</h4>
+      </div>
+      <div class="review-card">
+        <p>"Best place to relax with friends and enjoy cocktails."</p>
+        <h4>- Amit K.</h4>
+      </div>
+      <div class="review-card">
+        <p>"Service is top-notch and food quality is excellent."</p>
+        <h4>- Priya M.</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p><strong>Address:</strong> 123 Demo Street, Food City</p>
+    <p><strong>Phone:</strong> +91 98765 43210</p>
+    <p><strong>Hours:</strong> 11:00 AM – 11:30 PM</p>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>&copy; HOPE YOU LIKED IT </p>
+    &copy; 2026 Restaurant Prototype. All rights reserved.
   </footer>
 
 </body>
