@@ -3,112 +3,298 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Experience exquisite dining at The Restaurant Prototype. Discover our menu, chef's specials, gallery, and customer reviews.">
+  <meta name="keywords" content="restaurant, dining, menu, chef specials, reviews, gallery">
   <title>The Restaurant Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://via.placeholder.com/32x32?text=R" type="image/x-icon">
   <style>
     /* ==== GLOBAL STYLES ==== */
+    * {
+      box-sizing: border-box;
+    }
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background: #fff4e6;
+      background: linear-gradient(135deg, #fff4e6 0%, #f7e1c3 100%);
       color: #2b2b2b;
+      line-height: 1.6;
     }
-
-    a { text-decoration: none; }
-
-    h2 { margin-bottom: 20px; }
-
-    .section { padding: 40px 20px; }
+    a {
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 20px;
+    }
+    h1 { font-size: 3.5em; }
+    h2 { font-size: 2.5em; color: #4a1c1c; }
+    h3 { font-size: 1.8em; color: #7b2d26; }
+    .section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .btn {
+      display: inline-block;
+      background: #e09f3e;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .btn:hover {
+      background: #d08a2e;
+      transform: translateY(-2px);
+    }
 
     /* ==== HEADER ==== */
     header {
       background: #7b2d26;
       color: #ffffff;
-      text-align: center;
-      padding: 20px;
+      padding: 20px 0;
       position: sticky;
       top: 0;
       z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h2 {
+      margin: 0;
+      font-size: 2em;
+      font-family: 'Playfair Display', serif;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+    }
     nav a {
-      margin: 0 15px;
       color: #e09f3e;
-      font-weight: bold;
+      font-weight: 500;
+      font-size: 1.1em;
     }
-
-    nav a:hover { text-decoration: underline; }
+    nav a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
 
     /* ==== HERO ==== */
     .hero {
-      background: #f7e1c3;
-      padding: 100px 20px;
+      background: linear-gradient(135deg, #f7e1c3 0%, #e09f3e 100%);
+      padding: 120px 20px;
       text-align: center;
       color: #4a1c1c;
+      position: relative;
+      overflow: hidden;
     }
-
-    .hero h1 { font-size: 3em; margin: 0; }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://via.placeholder.com/1200x600?text=Restaurant+Hero') no-repeat center center;
+      background-size: cover;
+      opacity: 0.2;
+      z-index: -1;
+    }
+    .hero h1 {
+      font-size: 4em;
+      margin: 0 0 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .hero p {
+      font-size: 1.3em;
+      margin-bottom: 30px;
+    }
 
     /* ==== MENU GRID ==== */
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
     }
-
     .menu-item {
       background: #ffffff;
       border: 1px solid #f0d9b5;
-      padding: 20px;
-      border-radius: 10px;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
     }
-
-    .menu-item p { margin: 10px 0; }
+    .menu-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    .menu-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .menu-item p {
+      margin: 10px 0;
+      font-size: 1.1em;
+    }
+    .menu-item .price {
+      font-size: 1.4em;
+      color: #e09f3e;
+      font-weight: bold;
+    }
 
     /* ==== GALLERY ==== */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
     }
-
     .gallery-grid img {
       width: 100%;
-      border-radius: 10px;
+      height: 200px;
+      border-radius: 15px;
       object-fit: cover;
-      transition: transform 0.3s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-
-    .gallery-grid img:hover { transform: scale(1.05); }
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
 
     /* ==== REVIEWS ==== */
     .reviews-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
     }
-
     .review-card {
       background: #ffffff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    .review-card::before {
+      content: '★★★★★';
+      color: #e09f3e;
+      font-size: 1.5em;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .review-card p {
+      font-style: italic;
+      color: #2b2b2b;
+      font-size: 1.1em;
+      margin-bottom: 20px;
+    }
+    .review-card h4 {
+      margin: 0;
+      text-align: right;
+      color: #7b2d26;
+      font-weight: 500;
     }
 
-    .review-card p { font-style: italic; color: #2b2b2b; }
-    .review-card h4 { margin-top: 10px; text-align: right; color: #7b2d26; }
+    /* ==== CONTACT ==== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .contact-info p {
+      margin: 10px 0;
+      font-size: 1.1em;
+    }
+    .contact-form {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .contact-form h3 {
+      margin-top: 0;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: 'Roboto', sans-serif;
+    }
+    .contact-form button {
+      background: #e09f3e;
+      color: #ffffff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+    .contact-form button:hover {
+      background: #d08a2e;
+    }
 
     /* ==== FOOTER ==== */
     footer {
       background: #7b2d26;
       color: #ffffff;
       text-align: center;
-      padding: 15px;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer .social-links {
+      margin-top: 10px;
+    }
+    footer .social-links a {
+      color: #e09f3e;
+      margin: 0 10px;
+      font-size: 1.5em;
+    }
+    footer .social-links a:hover {
+      color: #ffffff;
     }
 
     /* ==== RESPONSIVE ==== */
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 2em; }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5em; }
+      .hero { padding: 80px 20px; }
+      nav { flex-direction: column; gap: 10px; }
+      header .container { flex-direction: column; text-align: center; }
+      .menu-grid, .reviews-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 2em; }
+      h2 { font-size: 2em; }
+      .section { padding: 40px 20px; }
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
@@ -116,109 +302,163 @@
 
   <!-- HEADER -->
   <header>
-    <h2>The Restaurant Prototype</h2>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#menu">Menu</a>
-      <a href="#highlights">Chef’s Specials</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="container">
+      <h2>The Restaurant Prototype</h2>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#highlights">Chef’s Specials</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
   <!-- HERO -->
   <section class="hero">
-    <h1>Welcome to Our Restaurant Prototype</h1>
-    <p>A warm, inviting experience for food lovers</p>
+    <div class="container">
+      <h1>Welcome to Our Restaurant Prototype</h1>
+      <p>A warm, inviting experience for food lovers</p>
+      <a href="#menu" class="btn">Explore Menu</a>
+    </div>
   </section>
 
   <!-- ABOUT -->
   <section id="about" class="section">
-    <h2>About Us</h2>
-    <p>This is a demo restaurant website prototype designed to showcase menu items, photos, chef specials, and customer reviews. Perfect for testing layouts or presenting restaurant concepts.</p>
+    <div class="container">
+      <h2>About Us</h2>
+      <p>This is a demo restaurant website prototype designed to showcase menu items, photos, chef specials, and customer reviews. Perfect for testing layouts or presenting restaurant concepts. We pride ourselves on using fresh, locally-sourced ingredients to create unforgettable dining experiences.</p>
+    </div>
   </section>
 
   <!-- MENU -->
   <section id="menu" class="section">
-    <h2>Menu</h2>
-    <div class="menu-grid">
-      <div class="menu-item">
-        <h3>Grilled Chicken</h3>
-        <p>Succulent grilled chicken with herbs</p>
-        <p><strong>₹350</strong></p>
-      </div>
-      <div class="menu-item">
-        <h3>Veg Biryani</h3>
-        <p>Aromatic rice with fresh vegetables</p>
-        <p><strong>₹200</strong></p>
-      </div>
-      <div class="menu-item">
-        <h3>Pasta Alfredo</h3>
-        <p>Creamy pasta with cheese and mushrooms</p>
-        <p><strong>₹250</strong></p>
+    <div class="container">
+      <h2>Our Menu</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/300x200?text=Grilled+Chicken" alt="Grilled Chicken">
+          <h3>Grilled Chicken</h3>
+          <p>Succulent grilled chicken marinated with herbs and spices, served with seasonal vegetables.</p>
+          <p class="price">₹350</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/300x200?text=Veg+Biryani" alt="Veg Biryani">
+          <h3>Veg Biryani</h3>
+          <p>Aromatic basmati rice cooked with fresh vegetables, saffron, and a blend of spices.</p>
+          <p class="price">₹200</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/300x200?text=Pasta+Alfredo" alt="Pasta Alfredo">
+          <h3>Pasta Alfredo</h3>
+          <p>Creamy fettuccine pasta tossed with parmesan cheese, mushrooms, and garlic.</p>
+          <p class="price">₹250</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/300x200?text=Margherita+Pizza" alt="Margherita Pizza">
+          <h3>Margherita Pizza</h3>
+          <p>Classic pizza with tomato sauce, fresh mozzarella, basil, and olive oil.</p>
+          <p class="price">₹300</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CHEF’S SPECIALS -->
   <section id="highlights" class="section">
-    <h2>Chef’s Specials</h2>
-    <div class="menu-grid">
-      <div class="menu-item">
-        <h3>Seafood Platter</h3>
-        <p>Assorted fresh seafood, chef’s choice</p>
-        <p><strong>₹500</strong></p>
-      </div>
-      <div class="menu-item">
-        <h3>Cocktail Special</h3>
-        <p>Signature drink from our bar</p>
-        <p><strong>₹320</strong></p>
+    <div class="container">
+      <h2>Chef’s Specials</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/300x200?text=Seafood+Platter" alt="Seafood Platter">
+          <h3>Seafood Platter</h3>
+          <p>Assorted fresh seafood including shrimp, calamari, and salmon, grilled to perfection.</p>
+          <p class="price">₹500</p>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/300x200?text=Cocktail+Special" alt="Cocktail Special">
+          <h3>Cocktail Special</h3>
+          <p>Signature house cocktail with premium spirits, fresh fruits, and a twist of lime.</p>
+          <p class="price">₹320</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- GALLERY -->
   <section id="gallery" class="section">
-    <h2>Gallery</h2>
-    <div class="gallery-grid">
-      <img src="https://via.placeholder.com/300x200?text=Dish+1" alt="Dish 1">
-      <img src="https://via.placeholder.com/300x200?text=Dish+2" alt="Dish 2">
-      <img src="https://via.placeholder.com/300x200?text=Interior" alt="Restaurant Interior">
-      <img src="https://via.placeholder.com/300x200?text=Dish+3" alt="Dish 3">
+    <div class="container">
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+        <img src="https://via.placeholder.com/300x200?text=Dish+1" alt="Dish 1">
+        <img src="https://via.placeholder.com/300x200?text=Dish+2" alt="Dish 2">
+        <img src="https://via.placeholder.com/300x200?text=Interior" alt="Restaurant Interior">
+        <img src="https://via.placeholder.com/300x200?text=Dish+3" alt="Dish 3">
+        <img src="https://via.placeholder.com/300x200?text=Chef+at+Work" alt="Chef at Work">
+        <img src="https://via.placeholder.com/300x200?text=Dining+Area" alt="Dining Area">
+      </div>
     </div>
   </section>
 
   <!-- CUSTOMER REVIEWS -->
   <section id="reviews" class="section">
-    <h2>Customer Reviews</h2>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <p>"Amazing food and cozy atmosphere!"</p>
-        <h4>- Riya S.</h4>
-      </div>
-      <div class="review-card">
-        <p>"Best place to relax with friends and enjoy cocktails."</p>
-        <h4>- Amit K.</h4>
-      </div>
-      <div class="review-card">
-        <p>"Service is top-notch and food quality is excellent."</p>
-        <h4>- Priya M.</h4>
+    <div class="container">
+      <h2>Customer Reviews</h2>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <p>"Amazing food and cozy atmosphere! The grilled chicken was perfectly seasoned."</p>
+          <h4>- Riya S.</h4>
+        </div>
+        <div class="review-card">
+          <p>"Best place to relax with friends and enjoy cocktails. Highly recommend the seafood platter."</p>
+          <h4>- Amit K.</h4>
+        </div>
+        <div class="review-card">
+          <p>"Service is top-notch and food quality is excellent. Will definitely come back!"</p>
+          <h4>- Priya M.</h4>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="section">
-    <h2>Contact</h2>
-    <p><strong>Address:</strong> 123 Demo Street, Food City</p>
-    <p><strong>Phone:</strong> +91 00000 00000</p>
-    <p><strong>Hours:</strong> 11:00 AM – 11:30 PM</p>
+    <div class="container">
+      <h2>Contact Us</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p><strong>Address:</strong> 123 Demo Street, Food City, India</p>
+          <p><strong>Phone:</strong> +91 00000 00000</p>
+          <p><strong>Email:</strong> info@restaurantprototype.com</p>
+          <p><strong>Hours:</strong> 11:00 AM – 11:30 PM (Daily)</p>
+        </div>
+        <div class="contact-form">
+          <h3>Make a Reservation</h3>
+          <form action="#" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="tel" name="phone" placeholder="Your Phone" required>
+            <input type="date" name="date" required>
+            <input type="time" name="time" required>
+            <textarea name="message" rows="4" placeholder="Special Requests"></textarea>
+            <button type="submit">Reserve Table</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    &copy; 2026 Restaurant Prototype. All rights reserved.
+    <div class="container">
+      <p>&copy; 2026 The Restaurant Prototype. All rights reserved.</p>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook">📘</a>
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="Twitter">🐦</a>
+      </div>
+    </div>
   </footer>
 
 </body>
