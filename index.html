@@ -14,25 +14,18 @@
       --gold: #d4af37;
       --white: #ffffff;
       --dark: #121212;
-      --overlay: rgba(0, 0, 0, 0.6);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    body { 
-      font-family: 'Montserrat', sans-serif; 
-      color: var(--white); 
-      background-color: var(--dark);
-      line-height: 1.6;
-    }
+    body { font-family: 'Montserrat', sans-serif; color: var(--white); background-color: var(--dark); line-height: 1.6; }
 
-    /* ==== BACKGROUND SLIDESHOW ==== */
+    /* ==== FIXED BACKGROUND SLIDESHOW ==== */
     .slideshow-container {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
       z-index: -2;
-      overflow: hidden;
+      background: var(--dark); /* Fallback to prevent black gaps */
     }
     .slide {
       position: absolute;
@@ -40,18 +33,19 @@
       background-size: cover;
       background-position: center;
       opacity: 0;
-      animation: slideAnim 24s infinite;
+      /* Fixed animation timing for 4 slides: 20s total, 5s each */
+      animation: slideAnim 20s infinite;
     }
     .slide:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070'); animation-delay: 0s; }
-    .slide:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1585937421612-70a0f2955037?q=80&w=1920'); animation-delay: 6s; }
-    .slide:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2070'); animation-delay: 12s; }
-    .slide:nth-child(4) { background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070'); animation-delay: 18s; }
+    .slide:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1585937421612-70a0f2955037?q=80&w=1920'); animation-delay: 5s; }
+    .slide:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2070'); animation-delay: 10s; }
+    .slide:nth-child(4) { background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070'); animation-delay: 15s; }
 
     @keyframes slideAnim {
-      0% { opacity: 0; transform: scale(1); }
-      5% { opacity: 1; }
+      0% { opacity: 0; }
+      10% { opacity: 1; }
       25% { opacity: 1; }
-      30% { opacity: 0; transform: scale(1.1); }
+      35% { opacity: 0; }
       100% { opacity: 0; }
     }
 
@@ -59,223 +53,68 @@
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.6);
       z-index: -1;
     }
 
-    /* ==== NAVIGATION ==== */
     header {
       padding: 30px 0;
       position: fixed;
       width: 100%;
       z-index: 1000;
-      transition: 0.4s;
       background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
     }
-    .nav-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 40px;
-    }
-    .logo { 
-      font-family: 'Cormorant Garamond', serif; 
-      font-size: 2rem; 
-      letter-spacing: 4px; 
-      text-transform: uppercase;
-    }
+    .nav-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; letter-spacing: 4px; }
     .logo span { color: var(--gold); }
-    nav a { 
-      color: white; 
-      text-decoration: none; 
-      margin-left: 35px; 
-      font-size: 0.75rem; 
-      letter-spacing: 2px;
-      font-weight: 400;
-    }
+    nav a { color: white; text-decoration: none; margin-left: 35px; font-size: 0.7rem; letter-spacing: 2px; }
 
-    /* ==== HERO ==== */
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-    .hero h1 { 
-      font-family: 'Cormorant Garamond', serif; 
-      font-size: 5rem; 
-      font-style: italic;
-      margin-bottom: 10px;
-    }
+    .hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 4.5rem; font-style: italic; }
 
-    /* ==== CONTENT SECTIONS ==== */
-    .content-wrapper {
-      background: rgba(18, 18, 18, 0.9); /* Translucent dark panels */
-      padding: 100px 0;
-    }
+    .content-wrapper { background: rgba(18, 18, 18, 0.9); padding: 80px 0; }
+    .section-title { text-align: center; margin-bottom: 60px; }
+    .section-title h2 { font-family: 'Cormorant Garamond', serif; font-size: 3rem; }
+    .divider { width: 50px; height: 1px; background: var(--gold); margin: 15px auto; }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 80px;
-    }
-    .section-title h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3.5rem;
-      font-weight: 500;
-    }
-    .divider {
-      width: 50px;
-      height: 1px;
-      background: var(--gold);
-      margin: 20px auto;
-    }
+    /* ==== DISH CARDS ==== */
+    .category-label { text-align: center; color: var(--gold); letter-spacing: 5px; text-transform: uppercase; font-size: 0.8rem; margin: 60px 0 30px; }
+    .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    /* ==== MENU GRID (REDUCED SIZE) ==== */
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    .category-label {
-      text-align: center;
-      color: var(--gold);
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      margin: 60px 0 40px;
-    }
-
-    .dish-card {
-      position: relative;
-      height: 320px; /* Smaller, focused size */
-      overflow: hidden;
-      cursor: pointer;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-    .dish-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(30%);
-      transition: 0.6s ease;
-    }
-    .dish-info {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.85);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 25px;
-      text-align: center;
-      opacity: 0;
-      transition: 0.4s;
-    }
+    .dish-card { position: relative; height: 280px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+    .dish-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; }
+    .dish-info { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; text-align: center; opacity: 0; transition: 0.4s; }
     .dish-card:hover .dish-info { opacity: 1; }
-    .dish-card:hover img { transform: scale(1.1); filter: grayscale(0%); }
+    .dish-card:hover img { transform: scale(1.1); }
 
-    .dish-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--gold); margin-bottom: 10px; }
-    .dish-info p { font-size: 0.85rem; color: #bbb; margin-bottom: 15px; font-weight: 200; }
-    .price { border-top: 1px solid var(--gold); padding-top: 5px; font-size: 0.9rem; }
+    .dish-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold); }
+    .dish-info p { font-size: 0.75rem; color: #bbb; margin: 10px 0; }
 
-    /* ==== REVIEWS ==== */
-    .review-item {
-      max-width: 700px;
-      margin: 0 auto 50px;
-      text-align: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-style: italic;
-      color: #dfdfdf;
-    }
+    /* ==== CONTACT FORM ==== */
+    .reservation-box { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 0 20px; }
+    input, textarea { width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding: 12px 0; color: white; margin-bottom: 15px; outline: none; }
+    .book-btn { background: var(--gold); color: black; border: none; padding: 12px 35px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; cursor: pointer; }
 
-    /* ==== CONTACT & RESERVATION ==== */
-    .reservation-box {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      padding: 0 20px;
-    }
-    .contact-detail { margin-bottom: 30px; }
-    .contact-detail h4 { color: var(--gold); letter-spacing: 2px; margin-bottom: 10px; font-size: 0.7rem; }
-    
-    input, textarea {
-      width: 100%;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-      padding: 15px 0;
-      color: white;
-      margin-bottom: 20px;
-      font-family: inherit;
-      outline: none;
-    }
-    input:focus { border-bottom: 1px solid var(--gold); }
-
-    .book-btn {
-      background: var(--gold);
-      color: black;
-      border: none;
-      padding: 15px 40px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .book-btn:hover { background: white; }
-
-    footer {
-      padding: 60px 0;
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
-    .socials a { color: white; margin: 0 15px; font-size: 1.2rem; transition: 0.3s; }
-    .socials a:hover { color: var(--gold); }
-
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 3rem; }
-      .reservation-box { grid-template-columns: 1fr; }
-      nav { display: none; }
-    }
+    footer { padding: 40px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
   </style>
 </head>
 <body>
 
   <div class="slideshow-container">
-    <div class="slide"></div>
-    <div class="slide"></div>
-    <div class="slide"></div>
-    <div class="slide"></div>
+    <div class="slide"></div><div class="slide"></div><div class="slide"></div><div class="slide"></div>
   </div>
   <div class="dark-overlay"></div>
 
-  <header id="header">
+  <header>
     <div class="nav-content">
       <div class="logo">RESTAURANT <span>NAME</span></div>
-      <nav>
-        <a href="#home">HOME</a>
-        <a href="#menu">MENU</a>
-        <a href="#reservation">RESERVATION</a>
-      </nav>
+      <nav><a href="#home">HOME</a><a href="#menu">MENU</a><a href="#reservation">RESERVATION</a></nav>
     </div>
   </header>
 
   <section class="hero" id="home">
     <div data-aos="fade-up">
-      <p style="letter-spacing: 8px; font-weight: 200; font-size: 0.9rem;">WELCOME TO</p>
+      <p style="letter-spacing: 6px; font-size: 0.8rem;">AUTHENTIC FLAVORS</p>
       <h1>Restaurant Name</h1>
       <div class="divider"></div>
     </div>
@@ -283,133 +122,53 @@
 
   <div class="content-wrapper">
     
-    <section id="menu" class="container">
-      <div class="section-title" data-aos="fade-up">
-        <h2>Our Menu</h2>
+    <section id="menu">
+      <div class="section-title" data-aos="fade-up"><h2>The Menu</h2></div>
+
+      <div class="category-label">Breads & Starters</div>
+      <div class="menu-grid">
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?q=80&w=400" alt="Roti"><div class="dish-info"><h3>Tandoori Roti</h3><p>Whole wheat bread baked in a clay oven.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1601050638917-3d87367d0f97?q=80&w=400" alt="Naan"><div class="dish-info"><h3>Garlic Naan</h3><p>Leavened bread with fresh garlic and butter.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1596797038558-b83b1928e83b?q=80&w=400" alt="Paratha"><div class="dish-info"><h3>Lacha Paratha</h3><p>Multi-layered flaky wheat bread.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1626132647523-66f5bf380027?q=80&w=400" alt="Kulcha"><div class="dish-info"><h3>Amritsari Kulcha</h3><p>Stuffed bread served with spicy chickpea curry.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1606491956689-2ea84b725c81?q=80&w=400" alt="Kachori"><div class="dish-info"><h3>Khasta Kachori</h3><p>Crispy deep-fried pastry filled with spiced lentils.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1606491956689-2ea84b725c81?q=80&w=400" alt="Pav Bhaji"><div class="dish-info"><h3>Pav Bhaji</h3><p>Spiced vegetable mash served with buttered buns (Pav).</p></div></div>
       </div>
 
-      <div class="category-label" data-aos="fade-up">Starters</div>
+      <div class="category-label">Main Course</div>
       <div class="menu-grid">
-        <div class="dish-card" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1601050638917-3d87367d0f97?q=80&w=600" alt="Paneer">
-          <div class="dish-info">
-            <h3>Paneer Tikka</h3>
-            <p>Spiced cottage cheese cubes charred in the tandoor.</p>
-            <div class="price">₹350</div>
-          </div>
-        </div>
-        <div class="dish-card" data-aos="fade-up" data-aos-delay="100">
-          <img src="https://images.unsplash.com/photo-1626602411112-10742f9a3ec8?q=80&w=600" alt="Samosa">
-          <div class="dish-info">
-            <h3>Vegetable Samosa</h3>
-            <p>Crispy pastry filled with tempered potatoes and peas.</p>
-            <div class="price">₹200</div>
-          </div>
-        </div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=400" alt="Dal Makhni"><div class="dish-info"><h3>Dal Makhni</h3><p>Slow-cooked black lentils with cream and butter.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1567184109411-47a7a3746aed?q=80&w=400" alt="Aloo Dum"><div class="dish-info"><h3>Aloo Dum</h3><p>Baby potatoes simmered in a rich spicy gravy.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1567184109411-47a7a3746aed?q=80&w=400" alt="Paneer"><div class="dish-info"><h3>Paneer Special</h3><p>Soft cottage cheese in a rich tomato cashew gravy.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?q=80&w=400" alt="Chola"><div class="dish-info"><h3>Pindi Chola</h3><p>Dark chickpeas cooked with traditional spices.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=400" alt="Biryani 1"><div class="dish-info"><h3>Hyderabadi Biryani</h3><p>Saffron-infused rice with marinated vegetables.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1563379091339-03b21bc4a4f8?q=80&w=400" alt="Biryani 2"><div class="dish-info"><h3>Lucknowi Biryani</h3><p>Aromatic Dum-cooked Basmati rice with spices.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=400" alt="Biryani 3"><div class="dish-info"><h3>Kolkata Biryani</h3><p>Lightly spiced rice with potatoes and saffron.</p></div></div>
       </div>
 
-      <div class="category-label" data-aos="fade-up">Main Course</div>
+      <div class="category-label">Desserts & Drinks</div>
       <div class="menu-grid">
-        <div class="dish-card" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?q=80&w=600" alt="Butter Chicken">
-          <div class="dish-info">
-            <h3>Butter Chicken</h3>
-            <p>Tender chicken in a velvety tomato and butter gravy.</p>
-            <div class="price">₹550</div>
-          </div>
-        </div>
-        <div class="dish-card" data-aos="fade-up" data-aos-delay="100">
-          <img src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=600" alt="Dal">
-          <div class="dish-info">
-            <h3>Dal Makhani</h3>
-            <p>Slow-cooked black lentils with cream and secret spices.</p>
-            <div class="price">₹400</div>
-          </div>
-        </div>
-        <div class="dish-card" data-aos="fade-up" data-aos-delay="200">
-          <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=600" alt="Biryani">
-          <div class="dish-info">
-            <h3>Lamb Biryani</h3>
-            <p>Fragrant basmati rice layered with spiced lamb and saffron.</p>
-            <div class="price">₹600</div>
-          </div>
-        </div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=400" alt="Ice Cream"><div class="dish-info"><h3>Artisan Ice Creams</h3><p>Assorted flavors including Kesar Pista and Rajbhog.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?q=80&w=400" alt="Gulab Jamun"><div class="dish-info"><h3>Gulab Jamun</h3><p>Warm milk dumplings soaked in cardamom syrup.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1596797038558-b83b1928e83b?q=80&w=400" alt="Sweets"><div class="dish-info"><h3>Indian Sweets</h3><p>Rasmalai, Gajar Ka Halwa, and seasonal delights.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1544145945-f904253d0c71?q=80&w=400" alt="Drinks"><div class="dish-info"><h3>Premium Drinks</h3><p>A selection of 8 signature mocktails and coolers.</p></div></div>
       </div>
     </section>
 
-    <section style="padding: 100px 0;">
-      <div class="section-title" data-aos="fade-up">
-        <h2>Guest Experiences</h2>
-      </div>
-      <div class="review-item" data-aos="fade-up">
-        "An unforgettable journey of flavors. The best Indian fine dining experience."
-        <p style="font-family: 'Montserrat'; font-size: 0.7rem; font-style: normal; margin-top: 15px; letter-spacing: 3px;">- ROHIT V.</p>
-      </div>
-      <div class="review-item" data-aos="fade-up">
-        "The ambiance and the Dal Makhani are simply world-class."
-        <p style="font-family: 'Montserrat'; font-size: 0.7rem; font-style: normal; margin-top: 15px; letter-spacing: 3px;">- SIMRAN K.</p>
-      </div>
-    </section>
-
-    <section id="reservation">
-      <div class="section-title" data-aos="fade-up">
-        <h2>Reserve A Table</h2>
-      </div>
+    <section id="reservation" style="padding: 60px 0;">
       <div class="reservation-box">
-        <div class="contact-info" data-aos="fade-right">
-          <div class="contact-detail">
-            <h4>LOCATION</h4>
-            <p>000 Fake Street, Sector Zero<br>New Delhi, India</p>
-          </div>
-          <div class="contact-detail">
-            <h4>HOURS</h4>
-            <p>Monday - Sunday<br>12:00 PM - 11:30 PM</p>
-          </div>
-          <div class="contact-detail">
-            <h4>CONTACT</h4>
-            <p>T: +91 00000 00000<br>E: contact@restaurantname.com</p>
-          </div>
+        <div>
+          <h4>LOCATION</h4><p>000 Fake Street, New Delhi, India</p><br>
+          <h4>CONTACT</h4><p>T: +91 00000 00000<br>E: contact@restaurantname.com</p>
         </div>
-        
-        <form data-aos="fade-left">
-          <input type="text" placeholder="YOUR NAME">
-          <input type="email" placeholder="EMAIL ADDRESS">
-          <div style="display: flex; gap: 20px;">
-            <input type="date">
-            <input type="number" placeholder="GUESTS">
-          </div>
-          <textarea rows="3" placeholder="SPECIAL REQUESTS"></textarea>
-          <button type="submit" class="book-btn">Request Reservation</button>
-        </form>
+        <form><input type="text" placeholder="NAME"><input type="date"><input type="number" placeholder="GUESTS"><button type="submit" class="book-btn">RESERVE</button></form>
       </div>
     </section>
 
-    <footer>
-      <div class="socials">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-      </div>
-      <p style="font-size: 0.6rem; opacity: 0.4; margin-top: 20px; letter-spacing: 2px;">&copy; 2026 RESTAURANT NAME. ALL RIGHTS RESERVED.</p>
-    </footer>
-
+    <footer><p style="font-size: 0.6rem; opacity: 0.4;">&copy; 2026 RESTAURANT NAME. ALL RIGHTS RESERVED.</p></footer>
   </div>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1000, once: true });
-
-    // Header scroll effect
-    window.onscroll = function() {
-      const header = document.getElementById('header');
-      if (window.pageYOffset > 50) {
-        header.style.background = 'rgba(0,0,0,0.95)';
-        header.style.padding = '15px 0';
-      } else {
-        header.style.background = 'linear-gradient(to bottom, rgba(0,0,0,0.8), transparent)';
-        header.style.padding = '30px 0';
-      }
-    };
-  </script>
+  <script>AOS.init({ duration: 1000, once: true });</script>
 </body>
 </html>
