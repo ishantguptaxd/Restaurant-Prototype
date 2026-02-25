@@ -3,463 +3,366 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Experience exquisite dining at The Restaurant Prototype. Discover our menu, chef's specials, gallery, and customer reviews.">
-  <meta name="keywords" content="restaurant, dining, menu, chef specials, reviews, gallery">
-  <title>The Restaurant Prototype</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="icon" href="https://via.placeholder.com/32x32?text=R" type="image/x-icon">
+  <title>The Culinary Prototype | Fine Dining</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/dist/css/all.min.css">
+  
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
+    :root {
+      --primary: #c5a059; /* Elegant Gold */
+      --secondary: #1a1a1a; /* Rich Black */
+      --accent: #7b2d26; /* Deep Wine */
+      --text-light: #f4f4f4;
+      --glass: rgba(255, 255, 255, 0.95);
+    }
+
     /* ==== GLOBAL STYLES ==== */
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
     body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #fff4e6 0%, #f7e1c3 100%);
-      color: #2b2b2b;
-      line-height: 1.6;
+      font-family: 'Poppins', sans-serif;
+      background: #fdfdfd;
+      color: #333;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
     }
-    a {
-      text-decoration: none;
-      transition: color 0.3s ease;
+
+    /* Aesthetic Background Overlay */
+    .bg-texture {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('https://images.unsplash.com/photo-1495195129352-aec325a55b65?auto=format&fit=crop&q=80&w=1920') no-repeat center center fixed;
+      background-size: cover;
+      opacity: 0.05;
+      z-index: -1;
     }
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 20px;
+
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
     }
-    h1 { font-size: 3.5em; }
-    h2 { font-size: 2.5em; color: #4a1c1c; }
-    h3 { font-size: 1.8em; color: #7b2d26; }
-    .section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    .btn {
-      display: inline-block;
-      background: #e09f3e;
-      color: #ffffff;
-      padding: 12px 24px;
-      border-radius: 25px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-    .btn:hover {
-      background: #d08a2e;
-      transform: translateY(-2px);
+    .section-title h2 { font-size: 3rem; color: var(--secondary); }
+    .section-title::after {
+      content: ''; display: block; width: 60px; height: 3px; background: var(--primary); margin: 15px auto;
     }
 
     /* ==== HEADER ==== */
     header {
-      background: #7b2d26;
-      color: #ffffff;
-      padding: 20px 0;
+      background: white;
+      padding: 15px 0;
       position: sticky;
       top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
     }
-    header .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header h2 {
-      margin: 0;
-      font-size: 2em;
-      font-family: 'Playfair Display', serif;
-    }
-    nav {
-      display: flex;
-      gap: 20px;
-    }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.8rem; font-weight: 700; color: var(--secondary); }
+    .logo span { color: var(--primary); }
+    
     nav a {
-      color: #e09f3e;
-      font-weight: 500;
-      font-size: 1.1em;
+      margin-left: 25px;
+      color: var(--secondary);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: 0.3s;
     }
-    nav a:hover {
-      color: #ffffff;
-      text-decoration: underline;
-    }
+    nav a:hover { color: var(--primary); }
 
     /* ==== HERO ==== */
     .hero {
-      background: linear-gradient(135deg, #f7e1c3 0%, #e09f3e 100%);
-      padding: 120px 20px;
+      height: 90vh;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                  url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=1920');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      color: #4a1c1c;
+      color: white;
+    }
+    .hero-content h1 { font-size: 5rem; margin-bottom: 10px; }
+    .hero-content p { font-size: 1.5rem; font-weight: 300; letter-spacing: 2px; }
+
+    /* ==== ABOUT (Shortened) ==== */
+    .about-mini { padding: 100px 0; text-align: center; background: white; }
+    .about-mini p { max-width: 700px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8; color: #666; }
+
+    /* ==== DISHES SECTION ==== */
+    .dish-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      padding-bottom: 80px;
+    }
+    .dish-card {
       position: relative;
       overflow: hidden;
+      border-radius: 15px;
+      height: 400px;
+      cursor: pointer;
     }
-    .hero::before {
-      content: '';
+    .dish-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .dish-overlay {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('https://via.placeholder.com/1200x600?text=Restaurant+Hero') no-repeat center center;
-      background-size: cover;
-      opacity: 0.2;
-      z-index: -1;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.9));
+      color: white;
+      padding: 40px 20px 20px;
+      transform: translateY(60px);
+      transition: 0.4s ease;
     }
-    .hero h1 {
-      font-size: 4em;
-      margin: 0 0 20px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-    .hero p {
-      font-size: 1.3em;
-      margin-bottom: 30px;
-    }
-
-    /* ==== MENU GRID ==== */
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-    .menu-item {
-      background: #ffffff;
-      border: 1px solid #f0d9b5;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: center;
-    }
-    .menu-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
-    .menu-item img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-    .menu-item p {
-      margin: 10px 0;
-      font-size: 1.1em;
-    }
-    .menu-item .price {
-      font-size: 1.4em;
-      color: #e09f3e;
-      font-weight: bold;
-    }
-
-    /* ==== GALLERY ==== */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .gallery-grid img {
-      width: 100%;
-      height: 200px;
-      border-radius: 15px;
-      object-fit: cover;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .gallery-grid img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
+    .dish-card:hover img { transform: scale(1.1); }
+    .dish-card:hover .dish-overlay { transform: translateY(0); }
+    
+    .dish-price { color: var(--primary); font-size: 1.2rem; font-weight: 600; }
 
     /* ==== REVIEWS ==== */
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+    .reviews { background: #f9f9f9; padding: 100px 0; }
+    .review-box {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     }
-    .review-card {
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      position: relative;
-    }
-    .review-card::before {
-      content: '★★★★★';
-      color: #e09f3e;
-      font-size: 1.5em;
-      position: absolute;
-      top: 20px;
-      right: 20px;
-    }
-    .review-card p {
-      font-style: italic;
-      color: #2b2b2b;
-      font-size: 1.1em;
-      margin-bottom: 20px;
-    }
-    .review-card h4 {
-      margin: 0;
-      text-align: right;
-      color: #7b2d26;
-      font-weight: 500;
-    }
+    .stars { color: var(--primary); margin-bottom: 15px; }
 
-    /* ==== CONTACT ==== */
-    .contact-grid {
+    /* ==== CONTACT & WHATSAPP ==== */
+    .contact-flex {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: start;
+      gap: 50px;
+      background: white;
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
     }
-    .contact-info p {
-      margin: 10px 0;
-      font-size: 1.1em;
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      background: #25D366;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      margin-top: 20px;
+      text-decoration: none;
+      transition: 0.3s;
     }
-    .contact-form {
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    .whatsapp-btn:hover { background: #128C7E; transform: scale(1.05); }
+    .whatsapp-btn i { margin-right: 10px; font-size: 1.4rem; }
+
+    input, textarea {
+      width: 100%; padding: 15px; margin-bottom: 15px;
+      border: 1px solid #ddd; border-radius: 8px; outline: none;
     }
-    .contact-form h3 {
-      margin-top: 0;
+    .submit-btn {
+      background: var(--secondary); color: white; border: none;
+      padding: 15px 40px; border-radius: 8px; cursor: pointer; transition: 0.3s;
     }
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-family: 'Roboto', sans-serif;
-    }
-    .contact-form button {
-      background: #e09f3e;
-      color: #ffffff;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 500;
-      transition: background 0.3s ease;
-    }
-    .contact-form button:hover {
-      background: #d08a2e;
-    }
+    .submit-btn:hover { background: var(--primary); }
 
     /* ==== FOOTER ==== */
     footer {
-      background: #7b2d26;
-      color: #ffffff;
+      background: var(--secondary);
+      color: white;
+      padding: 60px 0 20px;
       text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
     }
-    footer .social-links {
-      margin-top: 10px;
+    .social-icons a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 15px;
+      transition: 0.3s;
     }
-    footer .social-links a {
-      color: #e09f3e;
-      margin: 0 10px;
-      font-size: 1.5em;
-    }
-    footer .social-links a:hover {
-      color: #ffffff;
-    }
+    .social-icons a:hover { color: var(--primary); }
+    .copyright { margin-top: 40px; font-size: 0.8rem; opacity: 0.6; }
 
-    /* ==== RESPONSIVE ==== */
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.5em; }
-      .hero { padding: 80px 20px; }
-      nav { flex-direction: column; gap: 10px; }
-      header .container { flex-direction: column; text-align: center; }
-      .menu-grid, .reviews-grid { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 480px) {
-      h1 { font-size: 2em; }
-      h2 { font-size: 2em; }
-      .section { padding: 40px 20px; }
-    }
-
-    /* Smooth scrolling */
-    html {
-      scroll-behavior: smooth;
+      .hero-content h1 { font-size: 3rem; }
+      .contact-flex { grid-template-columns: 1fr; }
+      nav { display: none; } /* Add a burger menu for real production */
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <div class="bg-texture"></div>
+
   <header>
     <div class="container">
-      <h2>The Restaurant Prototype</h2>
+      <div class="logo">CULINARY<span>PRO</span></div>
       <nav>
-        <a href="#about">About</a>
-        <a href="#menu">Menu</a>
-        <a href="#highlights">Chef’s Specials</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#contact">Contact</a>
+        <a href="#home">HOME</a>
+        <a href="#about">STORY</a>
+        <a href="#menu">MENU</a>
+        <a href="#reviews">TESTIMONIALS</a>
+        <a href="#contact">RESERVATIONS</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <h1>Welcome to Our Restaurant Prototype</h1>
-      <p>A warm, inviting experience for food lovers</p>
-      <a href="#menu" class="btn">Explore Menu</a>
+  <section class="hero" id="home">
+    <div class="hero-content" data-aos="zoom-out" data-aos-duration="1500">
+      <p>ESTABLISHED 2026</p>
+      <h1>Fine Dining Redefined</h1>
+      <p>A Symphony of Flavors in Every Bite</p>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2>About Us</h2>
-      <p>This is a demo restaurant website prototype designed to showcase menu items, photos, chef specials, and customer reviews. Perfect for testing layouts or presenting restaurant concepts. We pride ourselves on using fresh, locally-sourced ingredients to create unforgettable dining experiences.</p>
+  <section id="about" class="about-mini">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>Our Story</h2>
+      </div>
+      <p>We blend traditional techniques with modern innovation. Using only farm-to-table organic ingredients, we curate an atmosphere where every meal is a celebrated memory. Welcome to the pinnacle of taste.</p>
     </div>
   </section>
 
-  <!-- MENU -->
-  <section id="menu" class="section">
-    <div class="container">
-      <h2>Our Menu</h2>
-      <div class="menu-grid">
-        <div class="menu-item">
-          <img src="https://via.placeholder.com/300x200?text=Grilled+Chicken" alt="Grilled Chicken">
-          <h3>Grilled Chicken</h3>
-          <p>Succulent grilled chicken marinated with herbs and spices, served with seasonal vegetables.</p>
-          <p class="price">₹350</p>
+  <section id="menu" class="container">
+    <div class="section-title" data-aos="fade-up">
+      <h2>Signature Dishes</h2>
+    </div>
+    <div class="dish-grid">
+      <div class="dish-card" data-aos="fade-up">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=600" alt="Truffle Steak">
+        <div class="dish-overlay">
+          <h3>Truffle Ribeye Steak</h3>
+          <p>Premium aged beef served with black truffle butter and roasted root vegetables.</p>
+          <span class="dish-price">₹1,250</span>
         </div>
-        <div class="menu-item">
-          <img src="https://via.placeholder.com/300x200?text=Veg+Biryani" alt="Veg Biryani">
-          <h3>Veg Biryani</h3>
-          <p>Aromatic basmati rice cooked with fresh vegetables, saffron, and a blend of spices.</p>
-          <p class="price">₹200</p>
+      </div>
+      <div class="dish-card" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://images.unsplash.com/photo-1573010182806-9d8135f71446?auto=format&fit=crop&q=80&w=600" alt="Saffron Risotto">
+        <div class="dish-overlay">
+          <h3>Saffron Seafood Risotto</h3>
+          <p>Arborio rice infused with Kashmiri saffron, topped with jumbo prawns and scallops.</p>
+          <span class="dish-price">₹850</span>
         </div>
-        <div class="menu-item">
-          <img src="https://via.placeholder.com/300x200?text=Pasta+Alfredo" alt="Pasta Alfredo">
-          <h3>Pasta Alfredo</h3>
-          <p>Creamy fettuccine pasta tossed with parmesan cheese, mushrooms, and garlic.</p>
-          <p class="price">₹250</p>
+      </div>
+      <div class="dish-card" data-aos="fade-up" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=600" alt="Artisan Pizza">
+        <div class="dish-overlay">
+          <h3>The Burrata Artisan</h3>
+          <p>Hand-stretched sourdough, heirloom tomatoes, and a whole creamy Burrata heart.</p>
+          <span class="dish-price">₹650</span>
         </div>
-        <div class="menu-item">
-          <img src="https://via.placeholder.com/300x200?text=Margherita+Pizza" alt="Margherita Pizza">
-          <h3>Margherita Pizza</h3>
-          <p>Classic pizza with tomato sauce, fresh mozzarella, basil, and olive oil.</p>
-          <p class="price">₹300</p>
+      </div>
+      <div class="dish-card" data-aos="fade-up">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=600" alt="Tuna Tartare">
+        <div class="dish-overlay">
+          <h3>Bluefin Tuna Tartare</h3>
+          <p>Fresh caught tuna with avocado mousse, soy-ginger glaze, and citrus crisps.</p>
+          <span class="dish-price">₹780</span>
+        </div>
+      </div>
+      <div class="dish-card" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=600" alt="Lamb Chops">
+        <div class="dish-overlay">
+          <h3>Herb-Crusted Lamb</h3>
+          <p>New Zealand lamb chops with a mint-pistachio crust and red wine reduction.</p>
+          <span class="dish-price">₹1,100</span>
+        </div>
+      </div>
+      <div class="dish-card" data-aos="fade-up" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&q=80&w=600" alt="Dessert">
+        <div class="dish-overlay">
+          <h3>Velvet Chocolate Dome</h3>
+          <p>70% dark chocolate shell with a melting caramel center and gold leaf.</p>
+          <span class="dish-price">₹450</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CHEF’S SPECIALS -->
-  <section id="highlights" class="section">
+  <section id="reviews" class="reviews">
     <div class="container">
-      <h2>Chef’s Specials</h2>
-      <div class="menu-grid">
-        <div class="menu-item">
-          <img src="https://via.placeholder.com/300x200?text=Seafood+Platter" alt="Seafood Platter">
-          <h3>Seafood Platter</h3>
-          <p>Assorted fresh seafood including shrimp, calamari, and salmon, grilled to perfection.</p>
-          <p class="price">₹500</p>
+      <div class="section-title" data-aos="fade-up">
+        <h2>Guest Experiences</h2>
+      </div>
+      <div class="dish-grid">
+        <div class="review-box" data-aos="zoom-in">
+          <div class="stars">★★★★★</div>
+          <p>"The best Ribeye I've had in years. The atmosphere is purely magical."</p>
+          <br><strong>- Sarah Johnson</strong>
         </div>
-        <div class="menu-item">
-          <img src="https://via.placeholder.com/300x200?text=Cocktail+Special" alt="Cocktail Special">
-          <h3>Cocktail Special</h3>
-          <p>Signature house cocktail with premium spirits, fresh fruits, and a twist of lime.</p>
-          <p class="price">₹320</p>
+        <div class="review-box" data-aos="zoom-in" data-aos-delay="100">
+          <div class="stars">★★★★★</div>
+          <p>"Exceptional service and the wine pairing was spot on. A true gem."</p>
+          <br><strong>- Michael Chen</strong>
+        </div>
+        <div class="review-box" data-aos="zoom-in" data-aos-delay="200">
+          <div class="stars">★★★★★</div>
+          <p>"Every dish is a work of art. The Saffron Risotto is a must-try!"</p>
+          <br><strong>- Elena Rodriguez</strong>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- GALLERY -->
-  <section id="gallery" class="section">
-    <div class="container">
-      <h2>Gallery</h2>
-      <div class="gallery-grid">
-        <img src="https://via.placeholder.com/300x200?text=Dish+1" alt="Dish 1">
-        <img src="https://via.placeholder.com/300x200?text=Dish+2" alt="Dish 2">
-        <img src="https://via.placeholder.com/300x200?text=Interior" alt="Restaurant Interior">
-        <img src="https://via.placeholder.com/300x200?text=Dish+3" alt="Dish 3">
-        <img src="https://via.placeholder.com/300x200?text=Chef+at+Work" alt="Chef at Work">
-        <img src="https://via.placeholder.com/300x200?text=Dining+Area" alt="Dining Area">
+  <section id="contact" class="container" style="padding: 100px 0;">
+    <div class="section-title" data-aos="fade-up">
+      <h2>Reservations</h2>
+    </div>
+    <div class="contact-flex" data-aos="fade-up">
+      <div class="contact-info">
+        <h3>Find Us</h3>
+        <p><i class="fas fa-map-marker-alt"></i> 123 Luxury Lane, Heritage Zone, Mumbai</p>
+        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+        <p><i class="fas fa-envelope"></i> reserve@culinarypro.com</p>
+        
+        <h3 style="margin-top: 30px;">Quick Reserve</h3>
+        <p>Text us directly on WhatsApp for instant table confirmation.</p>
+        <a href="https://wa.me/919876543210?text=I'd%20like%20to%20book%20a%20table" class="whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> Reserve via WhatsApp
+        </a>
       </div>
+      <form class="contact-form">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <div style="display: flex; gap: 10px;">
+          <input type="date" required>
+          <input type="time" required>
+        </div>
+        <textarea rows="4" placeholder="Message or Dietary Restrictions"></textarea>
+        <button type="submit" class="submit-btn">SEND REQUEST</button>
+      </form>
     </div>
   </section>
 
-  <!-- CUSTOMER REVIEWS -->
-  <section id="reviews" class="section">
-    <div class="container">
-      <h2>Customer Reviews</h2>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <p>"Amazing food and cozy atmosphere! The grilled chicken was perfectly seasoned."</p>
-          <h4>- Riya S.</h4>
-        </div>
-        <div class="review-card">
-          <p>"Best place to relax with friends and enjoy cocktails. Highly recommend the seafood platter."</p>
-          <h4>- Amit K.</h4>
-        </div>
-        <div class="review-card">
-          <p>"Service is top-notch and food quality is excellent. Will definitely come back!"</p>
-          <h4>- Priya M.</h4>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2>Contact Us</h2>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <p><strong>Address:</strong> 123 Demo Street, Food City, India</p>
-          <p><strong>Phone:</strong> +91 00000 00000</p>
-          <p><strong>Email:</strong> info@restaurantprototype.com</p>
-          <p><strong>Hours:</strong> 11:00 AM – 11:30 PM (Daily)</p>
-        </div>
-        <div class="contact-form">
-          <h3>Make a Reservation</h3>
-          <form action="#" method="post">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <input type="tel" name="phone" placeholder="Your Phone" required>
-            <input type="date" name="date" required>
-            <input type="time" name="time" required>
-            <textarea name="message" rows="4" placeholder="Special Requests"></textarea>
-            <button type="submit">Reserve Table</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>&copy; 2026 The Restaurant Prototype. All rights reserved.</p>
-      <div class="social-links">
-        <a href="#" aria-label="Facebook">📘</a>
-        <a href="#" aria-label="Instagram">📷</a>
-        <a href="#" aria-label="Twitter">🐦</a>
+      <div class="logo" style="color: white; margin-bottom: 20px;">CULINARY<span>PRO</span></div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-tripadvisor"></i></a>
       </div>
+      <p class="copyright">&copy; 2026 The Culinary Prototype. Crafted for Excellence.</p>
     </div>
   </footer>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
 </body>
 </html>
