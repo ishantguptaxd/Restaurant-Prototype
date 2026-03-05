@@ -25,7 +25,7 @@
       top: 0; left: 0;
       width: 100%; height: 100%;
       z-index: -2;
-      background: var(--dark); /* Fallback to prevent black gaps */
+      background: var(--dark);
     }
     .slide {
       position: absolute;
@@ -33,7 +33,6 @@
       background-size: cover;
       background-position: center;
       opacity: 0;
-      /* Fixed animation timing for 4 slides: 20s total, 5s each */
       animation: slideAnim 20s infinite;
     }
     .slide:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070'); animation-delay: 0s; }
@@ -70,30 +69,29 @@
     nav a { color: white; text-decoration: none; margin-left: 35px; font-size: 0.7rem; letter-spacing: 2px; }
 
     .hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 4.5rem; font-style: italic; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 4.5rem; font-style: italic; margin-bottom: 5px; }
+    .prototype-tag { letter-spacing: 4px; font-size: 0.65rem; color: var(--gold); opacity: 0.8; text-transform: uppercase; }
 
     .content-wrapper { background: rgba(18, 18, 18, 0.9); padding: 80px 0; }
     .section-title { text-align: center; margin-bottom: 60px; }
     .section-title h2 { font-family: 'Cormorant Garamond', serif; font-size: 3rem; }
     .divider { width: 50px; height: 1px; background: var(--gold); margin: 15px auto; }
 
-    /* ==== DISH CARDS ==== */
     .category-label { text-align: center; color: var(--gold); letter-spacing: 5px; text-transform: uppercase; font-size: 0.8rem; margin: 60px 0 30px; }
-    .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    .dish-card { position: relative; height: 280px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+    .dish-card { position: relative; height: 320px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
     .dish-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; }
-    .dish-info { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; text-align: center; opacity: 0; transition: 0.4s; }
+    .dish-info { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 25px; text-align: center; opacity: 0; transition: 0.4s; }
     .dish-card:hover .dish-info { opacity: 1; }
     .dish-card:hover img { transform: scale(1.1); }
 
-    .dish-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold); }
-    .dish-info p { font-size: 0.75rem; color: #bbb; margin: 10px 0; }
+    .dish-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--gold); }
+    .dish-info p { font-size: 0.8rem; color: #bbb; margin-top: 10px; }
 
-    /* ==== CONTACT FORM ==== */
-    .reservation-box { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 0 20px; }
-    input, textarea { width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding: 12px 0; color: white; margin-bottom: 15px; outline: none; }
-    .book-btn { background: var(--gold); color: black; border: none; padding: 12px 35px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; cursor: pointer; }
+    .contact-section { max-width: 900px; margin: 0 auto; text-align: center; padding: 40px 20px; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px; }
+    .contact-item h4 { color: var(--gold); letter-spacing: 3px; font-size: 0.9rem; margin-bottom: 10px; }
 
     footer { padding: 40px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
   </style>
@@ -108,7 +106,7 @@
   <header>
     <div class="nav-content">
       <div class="logo">RESTAURANT <span>NAME</span></div>
-      <nav><a href="#home">HOME</a><a href="#menu">MENU</a><a href="#reservation">RESERVATION</a></nav>
+      <nav><a href="#home">HOME</a><a href="#menu">MENU</a><a href="#contact">CONTACT</a></nav>
     </div>
   </header>
 
@@ -116,6 +114,7 @@
     <div data-aos="fade-up">
       <p style="letter-spacing: 6px; font-size: 0.8rem;">AUTHENTIC FLAVORS</p>
       <h1>Restaurant Name</h1>
+      <p class="prototype-tag">a prototype by synthree labs</p>
       <div class="divider"></div>
     </div>
   </section>
@@ -127,45 +126,49 @@
 
       <div class="category-label">Breads & Starters</div>
       <div class="menu-grid">
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?q=80&w=400" alt="Roti"><div class="dish-info"><h3>Tandoori Roti</h3><p>Whole wheat bread baked in a clay oven.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1601050638917-3d87367d0f97?q=80&w=400" alt="Naan"><div class="dish-info"><h3>Garlic Naan</h3><p>Leavened bread with fresh garlic and butter.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1596797038558-b83b1928e83b?q=80&w=400" alt="Paratha"><div class="dish-info"><h3>Lacha Paratha</h3><p>Multi-layered flaky wheat bread.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1626132647523-66f5bf380027?q=80&w=400" alt="Kulcha"><div class="dish-info"><h3>Amritsari Kulcha</h3><p>Stuffed bread served with spicy chickpea curry.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1606491956689-2ea84b725c81?q=80&w=400" alt="Kachori"><div class="dish-info"><h3>Khasta Kachori</h3><p>Crispy deep-fried pastry filled with spiced lentils.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1606491956689-2ea84b725c81?q=80&w=400" alt="Pav Bhaji"><div class="dish-info"><h3>Pav Bhaji</h3><p>Spiced vegetable mash served with buttered buns (Pav).</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=600" alt="Tandoori Roti"><div class="dish-info"><h3>Tandoori Roti</h3><p>Whole wheat bread baked in a traditional clay oven.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1601050638917-3d87367d0f97?q=80&w=600" alt="Garlic Naan"><div class="dish-info"><h3>Garlic Naan</h3><p>Leavened bread with fresh garlic and melted butter.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1626132647523-66f5bf380027?q=80&w=600" alt="Lacha Paratha"><div class="dish-info"><h3>Lacha Paratha</h3><p>Multi-layered flaky wheat bread finished with ghee.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1633504581786-316c8002b1b9?q=80&w=600" alt="Amritsari Kulcha"><div class="dish-info"><h3>Amritsari Kulcha</h3><p>Spiced potato stuffed bread, a Punjab specialty.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?q=80&w=600" alt="Khasta Kachori"><div class="dish-info"><h3>Khasta Kachori</h3><p>Crispy deep-fried pastry filled with spiced lentils.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1606491956689-2ea84b725c81?q=80&w=600" alt="Pav Bhaji"><div class="dish-info"><h3>Pav Bhaji</h3><p>Spiced vegetable mash served with butter-toasted buns.</p></div></div>
       </div>
 
       <div class="category-label">Main Course</div>
       <div class="menu-grid">
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=400" alt="Dal Makhni"><div class="dish-info"><h3>Dal Makhni</h3><p>Slow-cooked black lentils with cream and butter.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1567184109411-47a7a3746aed?q=80&w=400" alt="Aloo Dum"><div class="dish-info"><h3>Aloo Dum</h3><p>Baby potatoes simmered in a rich spicy gravy.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1567184109411-47a7a3746aed?q=80&w=400" alt="Paneer"><div class="dish-info"><h3>Paneer Special</h3><p>Soft cottage cheese in a rich tomato cashew gravy.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?q=80&w=400" alt="Chola"><div class="dish-info"><h3>Pindi Chola</h3><p>Dark chickpeas cooked with traditional spices.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=400" alt="Biryani 1"><div class="dish-info"><h3>Hyderabadi Biryani</h3><p>Saffron-infused rice with marinated vegetables.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1563379091339-03b21bc4a4f8?q=80&w=400" alt="Biryani 2"><div class="dish-info"><h3>Lucknowi Biryani</h3><p>Aromatic Dum-cooked Basmati rice with spices.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=400" alt="Biryani 3"><div class="dish-info"><h3>Kolkata Biryani</h3><p>Lightly spiced rice with potatoes and saffron.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=600" alt="Dal Makhni"><div class="dish-info"><h3>Dal Makhni</h3><p>Slow-cooked black lentils simmered for 24 hours.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=600" alt="Aloo Dum"><div class="dish-info"><h3>Aloo Dum</h3><p>Baby potatoes simmered in a rich, yogurt-based gravy.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1517244681291-03973d63c501?q=80&w=600" alt="Paneer Special"><div class="dish-info"><h3>Paneer Special</h3><p>Soft cottage cheese in a luxurious tomato cashew gravy.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?q=80&w=600" alt="Pindi Chola"><div class="dish-info"><h3>Pindi Chola</h3><p>Tangy and spicy chickpeas cooked in traditional spices.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=600" alt="Hyderabadi Biryani"><div class="dish-info"><h3>Hyderabadi Biryani</h3><p>Fragrant Basmati rice cooked with garden vegetables.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=600" alt="Lucknowi Biryani"><div class="dish-info"><h3>Lucknowi Biryani</h3><p>Awadhi style aromatic Dum-cooked rice.</p></div></div>
       </div>
 
       <div class="category-label">Desserts & Drinks</div>
       <div class="menu-grid">
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=400" alt="Ice Cream"><div class="dish-info"><h3>Artisan Ice Creams</h3><p>Assorted flavors including Kesar Pista and Rajbhog.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?q=80&w=400" alt="Gulab Jamun"><div class="dish-info"><h3>Gulab Jamun</h3><p>Warm milk dumplings soaked in cardamom syrup.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1596797038558-b83b1928e83b?q=80&w=400" alt="Sweets"><div class="dish-info"><h3>Indian Sweets</h3><p>Rasmalai, Gajar Ka Halwa, and seasonal delights.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1544145945-f904253d0c71?q=80&w=400" alt="Drinks"><div class="dish-info"><h3>Premium Drinks</h3><p>A selection of 8 signature mocktails and coolers.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=600" alt="Artisan Ice Creams"><div class="dish-info"><h3>Artisan Ice Creams</h3><p>Hand-churned flavors like Kesar Pista and Rajbhog.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1582716401301-b2407dc7563d?q=80&w=600" alt="Gulab Jamun"><div class="dish-info"><h3>Gulab Jamun</h3><p>Warm milk dumplings soaked in cardamom-infused syrup.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1596797038558-b83b1928e83b?q=80&w=600" alt="Indian Sweets"><div class="dish-info"><h3>Indian Sweets</h3><p>A platter of Rasmalai, Gajar Halwa, and Barfi.</p></div></div>
+        <div class="dish-card"><img src="https://images.unsplash.com/photo-1544145945-f904253d0c71?q=80&w=600" alt="Premium Drinks"><div class="dish-info"><h3>Premium Drinks</h3><p>Our signature botanical mocktails and coolers.</p></div></div>
       </div>
     </section>
 
-    <section id="reservation" style="padding: 60px 0;">
-      <div class="reservation-box">
-        <div>
-          <h4>LOCATION</h4><p>000 Fake Street, New Delhi, India</p><br>
-          <h4>CONTACT</h4><p>T: +91 00000 00000<br>E: contact@restaurantname.com</p>
+    <section id="contact" style="padding: 100px 0 60px;">
+      <div class="contact-section">
+        <div class="divider"></div>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <h4>LOCATION</h4>
+            <p></p> </div>
+          <div class="contact-item">
+            <h4>CONTACT</h4>
+            <p>T: +91 00000 00000<br>E: contact@restaurantname.com</p>
+          </div>
         </div>
-        <form><input type="text" placeholder="NAME"><input type="date"><input type="number" placeholder="GUESTS"><button type="submit" class="book-btn">RESERVE</button></form>
       </div>
     </section>
 
-    <footer><p style="font-size: 0.6rem; opacity: 0.4;">&copy; 2026 RESTAURANT NAME. ALL RIGHTS RESERVED.</p></footer>
+    <footer><p style="font-size: 0.6rem; opacity: 0.4; letter-spacing: 2px;">&copy; 2026 RESTAURANT NAME. ALL RIGHTS RESERVED.</p></footer>
   </div>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
