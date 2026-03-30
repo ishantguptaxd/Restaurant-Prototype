@@ -6,288 +6,289 @@
 <title>Indian Fine Dining | Restaurant Name</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <style>
 :root {
-  --gold: #d4af37;
-  --white: #ffffff;
-  --dark: #121212;
+  --gold:#d4af37;
+  --dark:#121212;
+  --white:#ffffff;
 }
 
-* { margin:0; padding:0; box-sizing:border-box; }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-body {
-  font-family:'Montserrat', sans-serif;
-  color:var(--white);
+body{
+  font-family:'Montserrat',sans-serif;
   background:var(--dark);
+  color:white;
 }
 
-/* ===== BACKGROUND SLIDESHOW ===== */
-.slideshow-container {
-  position:fixed;
-  width:100%; height:100%;
-  z-index:-2;
-}
-
-.slide {
-  position:absolute;
-  width:100%; height:100%;
-  background-size:cover;
-  background-position:center;
-  opacity:0;
-  animation:slideAnim 20s infinite;
-}
-
-.slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070');}
-.slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1585937421612-70a0f2955037?q=80&w=1920');animation-delay:5s;}
-.slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2070');animation-delay:10s;}
-.slide:nth-child(4){background-image:url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070');animation-delay:15s;}
-
-@keyframes slideAnim {
-  0%{opacity:0;}
-  10%{opacity:1;}
-  25%{opacity:1;}
-  35%{opacity:0;}
-  100%{opacity:0;}
-}
-
-.dark-overlay {
-  position:fixed;
-  width:100%; height:100%;
-  background:rgba(0,0,0,0.6);
-  z-index:-1;
+/* ===== FULL WIDTH FIX ===== */
+.content-wrapper{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 20px;
 }
 
 /* ===== NAV ===== */
-header {
+header{
   position:fixed;
   width:100%;
-  padding:20px 0;
-  background:linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+  background:rgba(0,0,0,0.8);
   z-index:1000;
 }
-
-.nav-content {
+.nav-content{
   max-width:1200px;
   margin:auto;
   display:flex;
   justify-content:space-between;
-  padding:0 20px;
+  padding:20px;
 }
-
-.logo {
+.logo{
   font-family:'Cormorant Garamond';
-  font-size:1.5rem;
+  font-size:1.6rem;
 }
+.logo span{color:var(--gold);}
 
-.logo span { color:var(--gold); }
-
-nav a {
-  margin-left:20px;
-  color:white;
+nav a{
+  margin-left:25px;
   text-decoration:none;
-  font-size:0.7rem;
+  color:white;
+  font-size:0.75rem;
 }
 
 /* ===== HERO ===== */
-.hero {
-  height:80vh;
+.hero{
+  height:90vh;
   display:flex;
   justify-content:center;
   align-items:center;
   flex-direction:column;
   text-align:center;
 }
-
-.hero h1 {
-  font-size:3rem;
+.hero h1{
+  font-size:4rem;
   font-family:'Cormorant Garamond';
 }
 
-.divider {
-  width:50px;
-  height:1px;
+.divider{
+  width:60px;height:1px;
   background:var(--gold);
-  margin:15px auto;
+  margin:20px auto;
 }
 
 /* ===== MENU ===== */
-.content-wrapper {
-  background:rgba(18,18,18,0.95);
-  padding:60px 0;
-}
-
-.section-title h2 {
+.section-title h2{
   text-align:center;
   font-family:'Cormorant Garamond';
-  font-size:2rem;
+  font-size:2.5rem;
 }
 
-.menu-section {
-  max-width:800px;
+.menu-section{
+  max-width:900px;
   margin:auto;
-  padding:0 20px;
 }
 
-.category-label {
+.category-label{
   text-align:center;
   color:var(--gold);
-  margin:40px 0 10px;
-  letter-spacing:3px;
-  font-size:0.8rem;
+  margin:50px 0 15px;
+  letter-spacing:4px;
 }
 
-.menu-item {
+.menu-item{
   display:flex;
   justify-content:space-between;
-  padding:15px 0;
+  padding:18px 0;
   border-bottom:1px solid rgba(255,255,255,0.1);
   cursor:pointer;
-  transition:0.3s;
 }
-
-.menu-item:hover {
-  color:var(--gold);
-}
-
-.menu-item h3 {
-  font-family:'Cormorant Garamond';
-}
+.menu-item:hover{color:var(--gold);}
 
 /* ===== MODAL ===== */
-.modal {
+.modal{
   position:fixed;
-  width:100%; height:100%;
+  width:100%;height:100%;
   background:rgba(0,0,0,0.8);
   display:flex;
   justify-content:center;
   align-items:center;
   opacity:0;
   visibility:hidden;
-  transition:0.3s;
 }
+.modal.active{opacity:1;visibility:visible;}
 
-.modal.active {
-  opacity:1;
-  visibility:visible;
-}
-
-.modal-content {
+.modal-content{
   background:#1a1a1a;
   padding:30px;
-  text-align:center;
   width:90%;
   max-width:400px;
+  text-align:center;
 }
 
-.modal-content h3 {
+.modal-content h3{
   color:var(--gold);
   font-family:'Cormorant Garamond';
 }
 
-.close-btn {
+.close-btn{
   margin-top:20px;
   cursor:pointer;
 }
 
+/* ===== REVIEWS ===== */
+.reviews{
+  margin-top:80px;
+}
+.review-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+.review{
+  border:1px solid rgba(255,255,255,0.1);
+  padding:20px;
+}
+.review p{
+  font-size:0.9rem;
+  opacity:0.8;
+}
+.review h4{
+  margin-top:10px;
+  color:var(--gold);
+}
+
 /* ===== CONTACT ===== */
-.contact {
+.contact{
+  margin-top:80px;
   text-align:center;
-  padding:40px 20px;
+}
+.contact-box{
+  margin-top:20px;
+  border:1px solid rgba(255,255,255,0.1);
+  padding:30px;
 }
 
 /* ===== MOBILE ===== */
 @media(max-width:768px){
-  .hero h1 { font-size:2.2rem; }
+  .hero h1{font-size:2.5rem;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="slideshow-container">
-  <div class="slide"></div>
-  <div class="slide"></div>
-  <div class="slide"></div>
-  <div class="slide"></div>
-</div>
-
-<div class="dark-overlay"></div>
-
 <header>
   <div class="nav-content">
     <div class="logo">RESTAURANT <span>NAME</span></div>
     <nav>
-      <a href="#home">HOME</a>
       <a href="#menu">MENU</a>
+      <a href="#reviews">REVIEWS</a>
       <a href="#contact">CONTACT</a>
     </nav>
   </div>
 </header>
 
-<section class="hero" id="home">
+<section class="hero">
   <h1>Restaurant Name</h1>
   <div class="divider"></div>
 </section>
 
 <div class="content-wrapper">
 
+<!-- MENU -->
 <section id="menu">
-  <div class="section-title"><h2>The Menu</h2></div>
+<div class="section-title"><h2>The Menu</h2></div>
 
-  <div class="menu-section">
+<div class="menu-section">
 
-    <div class="category-label">Breads & Starters</div>
-    <div class="menu-item" onclick="openModal('Tandoori Roti','Clay oven baked bread.')">
-      <h3>Tandoori Roti</h3><span>₹40</span>
-    </div>
-    <div class="menu-item" onclick="openModal('Garlic Naan','Soft naan with butter.')">
-      <h3>Garlic Naan</h3><span>₹80</span>
-    </div>
+<div class="category-label">Starters</div>
+<div class="menu-item" onclick="openModal('Paneer Tikka','Grilled paneer with spices')">
+<h3>Paneer Tikka</h3><span>₹220</span></div>
 
-    <div class="category-label">Main Course</div>
-    <div class="menu-item" onclick="openModal('Dal Makhni','Creamy slow cooked lentils.')">
-      <h3>Dal Makhni</h3><span>₹220</span>
-    </div>
-    <div class="menu-item" onclick="openModal('Paneer Special','Rich paneer gravy.')">
-      <h3>Paneer Special</h3><span>₹260</span>
-    </div>
+<div class="menu-item" onclick="openModal('Veg Manchurian','Crispy balls in sauce')">
+<h3>Veg Manchurian</h3><span>₹180</span></div>
 
-    <div class="category-label">Desserts</div>
-    <div class="menu-item" onclick="openModal('Gulab Jamun','Sweet syrup dessert.')">
-      <h3>Gulab Jamun</h3><span>₹90</span>
-    </div>
+<div class="category-label">Main Course</div>
+<div class="menu-item" onclick="openModal('Butter Paneer','Creamy tomato gravy')">
+<h3>Butter Paneer</h3><span>₹280</span></div>
 
-  </div>
+<div class="menu-item" onclick="openModal('Dal Makhni','Slow cooked lentils')">
+<h3>Dal Makhni</h3><span>₹240</span></div>
+
+<div class="menu-item" onclick="openModal('Veg Biryani','Aromatic rice')">
+<h3>Veg Biryani</h3><span>₹260</span></div>
+
+<div class="category-label">Breads</div>
+<div class="menu-item" onclick="openModal('Butter Naan','Soft bread')">
+<h3>Butter Naan</h3><span>₹60</span></div>
+
+<div class="menu-item" onclick="openModal('Tandoori Roti','Wheat bread')">
+<h3>Tandoori Roti</h3><span>₹40</span></div>
+
+<div class="category-label">Desserts</div>
+<div class="menu-item" onclick="openModal('Gulab Jamun','Sweet syrup balls')">
+<h3>Gulab Jamun</h3><span>₹90</span></div>
+
+<div class="menu-item" onclick="openModal('Ice Cream','Various flavors')">
+<h3>Ice Cream</h3><span>₹120</span></div>
+
+</div>
 </section>
 
-<section id="contact" class="contact">
-  <div class="divider"></div>
-  <p>📍 Add your location here</p>
-  <p>📞 +91 00000 00000</p>
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+<div class="section-title"><h2>Reviews</h2></div>
+
+<div class="review-grid">
+
+<div class="review">
+<p>"Amazing food and ambience. Truly premium experience!"</p>
+<h4>- Customer</h4>
+</div>
+
+<div class="review">
+<p>"Best paneer dishes I’ve had. Highly recommended."</p>
+<h4>- Food Lover</h4>
+</div>
+
+<div class="review">
+<p>"Service was fast and staff was very polite."</p>
+<h4>- Guest</h4>
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="section-title"><h2>Find Us Here</h2></div>
+
+<div class="contact-box">
+<p>📍 Your Address Here</p>
+<p>📞 +91 00000 00000</p>
+<p>📧 contact@restaurant.com</p>
+</div>
 </section>
 
 </div>
 
 <!-- MODAL -->
 <div class="modal" id="modal">
-  <div class="modal-content">
-    <h3 id="modal-title"></h3>
-    <p id="modal-desc"></p>
-    <div class="close-btn" onclick="closeModal()">CLOSE</div>
-  </div>
+<div class="modal-content">
+<h3 id="modal-title"></h3>
+<p id="modal-desc"></p>
+<div class="close-btn" onclick="closeModal()">CLOSE</div>
+</div>
 </div>
 
 <script>
-function openModal(title, desc){
-  document.getElementById("modal-title").innerText = title;
-  document.getElementById("modal-desc").innerText = desc;
-  document.getElementById("modal").classList.add("active");
+function openModal(title,desc){
+document.getElementById("modal-title").innerText=title;
+document.getElementById("modal-desc").innerText=desc;
+document.getElementById("modal").classList.add("active");
 }
-
 function closeModal(){
-  document.getElementById("modal").classList.remove("active");
+document.getElementById("modal").classList.remove("active");
 }
 </script>
 
