@@ -1,177 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Indian Fine Dining | Restaurant Name</title>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/dist/css/all.min.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indian Fine Dining | Restaurant Name</title>
 
-  <style>
-    :root {
-      --gold: #d4af37;
-      --white: #ffffff;
-      --dark: #121212;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Montserrat', sans-serif; color: var(--white); background-color: var(--dark); line-height: 1.6; }
+<style>
+:root {
+  --gold: #d4af37;
+  --white: #ffffff;
+  --dark: #121212;
+}
 
-    /* ==== FIXED BACKGROUND SLIDESHOW ==== */
-    .slideshow-container {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: -2;
-      background: var(--dark);
-    }
-    .slide {
-      position: absolute;
-      width: 100%; height: 100%;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      animation: slideAnim 20s infinite;
-    }
-    .slide:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070'); animation-delay: 0s; }
-    .slide:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1585937421612-70a0f2955037?q=80&w=1920'); animation-delay: 5s; }
-    .slide:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2070'); animation-delay: 10s; }
-    .slide:nth-child(4) { background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070'); animation-delay: 15s; }
+* { margin:0; padding:0; box-sizing:border-box; }
 
-    @keyframes slideAnim {
-      0% { opacity: 0; }
-      10% { opacity: 1; }
-      25% { opacity: 1; }
-      35% { opacity: 0; }
-      100% { opacity: 0; }
-    }
+body {
+  font-family:'Montserrat', sans-serif;
+  color:var(--white);
+  background:var(--dark);
+}
 
-    .dark-overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      z-index: -1;
-    }
+/* ===== BACKGROUND SLIDESHOW ===== */
+.slideshow-container {
+  position:fixed;
+  width:100%; height:100%;
+  z-index:-2;
+}
 
-    header {
-      padding: 30px 0;
-      position: fixed;
-      width: 100%;
-      z-index: 1000;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
-    }
-    .nav-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
-    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; letter-spacing: 4px; }
-    .logo span { color: var(--gold); }
-    nav a { color: white; text-decoration: none; margin-left: 35px; font-size: 0.7rem; letter-spacing: 2px; }
+.slide {
+  position:absolute;
+  width:100%; height:100%;
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  animation:slideAnim 20s infinite;
+}
 
-    .hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 4.5rem; font-style: italic; margin-bottom: 5px; }
-    .prototype-tag { letter-spacing: 4px; font-size: 0.65rem; color: var(--gold); opacity: 0.8; text-transform: uppercase; }
+.slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070');}
+.slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1585937421612-70a0f2955037?q=80&w=1920');animation-delay:5s;}
+.slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2070');animation-delay:10s;}
+.slide:nth-child(4){background-image:url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070');animation-delay:15s;}
 
-    .content-wrapper { background: rgba(18, 18, 18, 0.9); padding: 80px 0; }
-    .section-title { text-align: center; margin-bottom: 60px; }
-    .section-title h2 { font-family: 'Cormorant Garamond', serif; font-size: 3rem; }
-    .divider { width: 50px; height: 1px; background: var(--gold); margin: 15px auto; }
+@keyframes slideAnim {
+  0%{opacity:0;}
+  10%{opacity:1;}
+  25%{opacity:1;}
+  35%{opacity:0;}
+  100%{opacity:0;}
+}
 
-    .category-label { text-align: center; color: var(--gold); letter-spacing: 5px; text-transform: uppercase; font-size: 0.8rem; margin: 60px 0 30px; }
-    .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.dark-overlay {
+  position:fixed;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.6);
+  z-index:-1;
+}
 
-    .dish-card { position: relative; height: 320px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
-    .dish-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; }
-    .dish-info { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 25px; text-align: center; opacity: 0; transition: 0.4s; }
-    .dish-card:hover .dish-info { opacity: 1; }
-    .dish-card:hover img { transform: scale(1.1); }
+/* ===== NAV ===== */
+header {
+  position:fixed;
+  width:100%;
+  padding:20px 0;
+  background:linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+  z-index:1000;
+}
 
-    .dish-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--gold); }
-    .dish-info p { font-size: 0.8rem; color: #bbb; margin-top: 10px; }
+.nav-content {
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  padding:0 20px;
+}
 
-    .contact-section { max-width: 900px; margin: 0 auto; text-align: center; padding: 40px 20px; }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px; }
-    .contact-item h4 { color: var(--gold); letter-spacing: 3px; font-size: 0.9rem; margin-bottom: 10px; }
+.logo {
+  font-family:'Cormorant Garamond';
+  font-size:1.5rem;
+}
 
-    footer { padding: 40px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
-  </style>
+.logo span { color:var(--gold); }
+
+nav a {
+  margin-left:20px;
+  color:white;
+  text-decoration:none;
+  font-size:0.7rem;
+}
+
+/* ===== HERO ===== */
+.hero {
+  height:80vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+}
+
+.hero h1 {
+  font-size:3rem;
+  font-family:'Cormorant Garamond';
+}
+
+.divider {
+  width:50px;
+  height:1px;
+  background:var(--gold);
+  margin:15px auto;
+}
+
+/* ===== MENU ===== */
+.content-wrapper {
+  background:rgba(18,18,18,0.95);
+  padding:60px 0;
+}
+
+.section-title h2 {
+  text-align:center;
+  font-family:'Cormorant Garamond';
+  font-size:2rem;
+}
+
+.menu-section {
+  max-width:800px;
+  margin:auto;
+  padding:0 20px;
+}
+
+.category-label {
+  text-align:center;
+  color:var(--gold);
+  margin:40px 0 10px;
+  letter-spacing:3px;
+  font-size:0.8rem;
+}
+
+.menu-item {
+  display:flex;
+  justify-content:space-between;
+  padding:15px 0;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.menu-item:hover {
+  color:var(--gold);
+}
+
+.menu-item h3 {
+  font-family:'Cormorant Garamond';
+}
+
+/* ===== MODAL ===== */
+.modal {
+  position:fixed;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.8);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  visibility:hidden;
+  transition:0.3s;
+}
+
+.modal.active {
+  opacity:1;
+  visibility:visible;
+}
+
+.modal-content {
+  background:#1a1a1a;
+  padding:30px;
+  text-align:center;
+  width:90%;
+  max-width:400px;
+}
+
+.modal-content h3 {
+  color:var(--gold);
+  font-family:'Cormorant Garamond';
+}
+
+.close-btn {
+  margin-top:20px;
+  cursor:pointer;
+}
+
+/* ===== CONTACT ===== */
+.contact {
+  text-align:center;
+  padding:40px 20px;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  .hero h1 { font-size:2.2rem; }
+}
+</style>
 </head>
+
 <body>
 
-  <div class="slideshow-container">
-    <div class="slide"></div><div class="slide"></div><div class="slide"></div><div class="slide"></div>
+<div class="slideshow-container">
+  <div class="slide"></div>
+  <div class="slide"></div>
+  <div class="slide"></div>
+  <div class="slide"></div>
+</div>
+
+<div class="dark-overlay"></div>
+
+<header>
+  <div class="nav-content">
+    <div class="logo">RESTAURANT <span>NAME</span></div>
+    <nav>
+      <a href="#home">HOME</a>
+      <a href="#menu">MENU</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
   </div>
-  <div class="dark-overlay"></div>
+</header>
 
-  <header>
-    <div class="nav-content">
-      <div class="logo">RESTAURANT <span>NAME</span></div>
-      <nav><a href="#home">HOME</a><a href="#menu">MENU</a><a href="#contact">CONTACT</a></nav>
+<section class="hero" id="home">
+  <h1>Restaurant Name</h1>
+  <div class="divider"></div>
+</section>
+
+<div class="content-wrapper">
+
+<section id="menu">
+  <div class="section-title"><h2>The Menu</h2></div>
+
+  <div class="menu-section">
+
+    <div class="category-label">Breads & Starters</div>
+    <div class="menu-item" onclick="openModal('Tandoori Roti','Clay oven baked bread.')">
+      <h3>Tandoori Roti</h3><span>₹40</span>
     </div>
-  </header>
-
-  <section class="hero" id="home">
-    <div data-aos="fade-up">
-      <p style="letter-spacing: 6px; font-size: 0.8rem;">AUTHENTIC FLAVORS</p>
-      <h1>Restaurant Name</h1>
-      <p class="prototype-tag">a prototype by synthree labs</p>
-      <div class="divider"></div>
+    <div class="menu-item" onclick="openModal('Garlic Naan','Soft naan with butter.')">
+      <h3>Garlic Naan</h3><span>₹80</span>
     </div>
-  </section>
 
-  <div class="content-wrapper">
-    
-    <section id="menu">
-      <div class="section-title" data-aos="fade-up"><h2>The Menu</h2></div>
+    <div class="category-label">Main Course</div>
+    <div class="menu-item" onclick="openModal('Dal Makhni','Creamy slow cooked lentils.')">
+      <h3>Dal Makhni</h3><span>₹220</span>
+    </div>
+    <div class="menu-item" onclick="openModal('Paneer Special','Rich paneer gravy.')">
+      <h3>Paneer Special</h3><span>₹260</span>
+    </div>
 
-      <div class="category-label">Breads & Starters</div>
-      <div class="menu-grid">
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=600" alt="Tandoori Roti"><div class="dish-info"><h3>Tandoori Roti</h3><p>Whole wheat bread baked in a traditional clay oven.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1601050638917-3d87367d0f97?q=80&w=600" alt="Garlic Naan"><div class="dish-info"><h3>Garlic Naan</h3><p>Leavened bread with fresh garlic and melted butter.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1626132647523-66f5bf380027?q=80&w=600" alt="Lacha Paratha"><div class="dish-info"><h3>Lacha Paratha</h3><p>Multi-layered flaky wheat bread finished with ghee.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1633504581786-316c8002b1b9?q=80&w=600" alt="Amritsari Kulcha"><div class="dish-info"><h3>Amritsari Kulcha</h3><p>Spiced potato stuffed bread, a Punjab specialty.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?q=80&w=600" alt="Khasta Kachori"><div class="dish-info"><h3>Khasta Kachori</h3><p>Crispy deep-fried pastry filled with spiced lentils.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1606491956689-2ea84b725c81?q=80&w=600" alt="Pav Bhaji"><div class="dish-info"><h3>Pav Bhaji</h3><p>Spiced vegetable mash served with butter-toasted buns.</p></div></div>
-      </div>
+    <div class="category-label">Desserts</div>
+    <div class="menu-item" onclick="openModal('Gulab Jamun','Sweet syrup dessert.')">
+      <h3>Gulab Jamun</h3><span>₹90</span>
+    </div>
 
-      <div class="category-label">Main Course</div>
-      <div class="menu-grid">
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=600" alt="Dal Makhni"><div class="dish-info"><h3>Dal Makhni</h3><p>Slow-cooked black lentils simmered for 24 hours.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=600" alt="Aloo Dum"><div class="dish-info"><h3>Aloo Dum</h3><p>Baby potatoes simmered in a rich, yogurt-based gravy.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1517244681291-03973d63c501?q=80&w=600" alt="Paneer Special"><div class="dish-info"><h3>Paneer Special</h3><p>Soft cottage cheese in a luxurious tomato cashew gravy.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?q=80&w=600" alt="Pindi Chola"><div class="dish-info"><h3>Pindi Chola</h3><p>Tangy and spicy chickpeas cooked in traditional spices.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=600" alt="Hyderabadi Biryani"><div class="dish-info"><h3>Hyderabadi Biryani</h3><p>Fragrant Basmati rice cooked with garden vegetables.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=600" alt="Lucknowi Biryani"><div class="dish-info"><h3>Lucknowi Biryani</h3><p>Awadhi style aromatic Dum-cooked rice.</p></div></div>
-      </div>
-
-      <div class="category-label">Desserts & Drinks</div>
-      <div class="menu-grid">
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=600" alt="Artisan Ice Creams"><div class="dish-info"><h3>Artisan Ice Creams</h3><p>Hand-churned flavors like Kesar Pista and Rajbhog.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1582716401301-b2407dc7563d?q=80&w=600" alt="Gulab Jamun"><div class="dish-info"><h3>Gulab Jamun</h3><p>Warm milk dumplings soaked in cardamom-infused syrup.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1596797038558-b83b1928e83b?q=80&w=600" alt="Indian Sweets"><div class="dish-info"><h3>Indian Sweets</h3><p>A platter of Rasmalai, Gajar Halwa, and Barfi.</p></div></div>
-        <div class="dish-card"><img src="https://images.unsplash.com/photo-1544145945-f904253d0c71?q=80&w=600" alt="Premium Drinks"><div class="dish-info"><h3>Premium Drinks</h3><p>Our signature botanical mocktails and coolers.</p></div></div>
-      </div>
-    </section>
-
-    <section id="contact" style="padding: 100px 0 60px;">
-      <div class="contact-section">
-        <div class="divider"></div>
-        <div class="contact-grid">
-          <div class="contact-item">
-            <h4>LOCATION</h4>
-            <p></p> </div>
-          <div class="contact-item">
-            <h4>CONTACT</h4>
-            <p>T: +91 00000 00000<br>E: contact@restaurantname.com</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer><p style="font-size: 0.6rem; opacity: 0.4; letter-spacing: 2px;">&copy; 2026 RESTAURANT NAME. ALL RIGHTS RESERVED.</p></footer>
   </div>
+</section>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init({ duration: 1000, once: true });</script>
+<section id="contact" class="contact">
+  <div class="divider"></div>
+  <p>📍 Add your location here</p>
+  <p>📞 +91 00000 00000</p>
+</section>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3 id="modal-title"></h3>
+    <p id="modal-desc"></p>
+    <div class="close-btn" onclick="closeModal()">CLOSE</div>
+  </div>
+</div>
+
+<script>
+function openModal(title, desc){
+  document.getElementById("modal-title").innerText = title;
+  document.getElementById("modal-desc").innerText = desc;
+  document.getElementById("modal").classList.add("active");
+}
+
+function closeModal(){
+  document.getElementById("modal").classList.remove("active");
+}
+</script>
+
 </body>
 </html>
