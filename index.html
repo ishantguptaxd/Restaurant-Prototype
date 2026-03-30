@@ -3,15 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Indian Fine Dining | Restaurant Name</title>
+<title>Restaurant Name</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
 :root {
   --gold:#d4af37;
   --dark:#121212;
-  --white:#ffffff;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -30,14 +29,13 @@ body{
   background-size:cover;
   background-position:center;
   z-index:-2;
-  transition:1s ease;
 }
 
 .overlay{
   position:fixed;
   width:100%;
   height:100%;
-  background:rgba(0,0,0,0.6);
+  background:rgba(0,0,0,0.65);
   z-index:-1;
 }
 
@@ -45,27 +43,68 @@ body{
 header{
   position:fixed;
   width:100%;
-  background:rgba(0,0,0,0.6);
+  background:rgba(0,0,0,0.7);
   z-index:1000;
 }
+
 .nav-content{
-  max-width:1200px;
-  margin:auto;
   display:flex;
   justify-content:space-between;
-  padding:20px;
+  align-items:center;
+  padding:15px 20px;
 }
+
 .logo{
   font-family:'Cormorant Garamond';
-  font-size:1.6rem;
+  font-size:1.4rem;
 }
 .logo span{color:var(--gold);}
 
+/* NAV LINKS */
+nav{
+  display:flex;
+}
+
 nav a{
-  margin-left:25px;
+  margin-left:20px;
   text-decoration:none;
   color:white;
-  font-size:0.75rem;
+  font-size:0.7rem;
+}
+
+/* HAMBURGER */
+.hamburger{
+  display:none;
+  font-size:1.5rem;
+  cursor:pointer;
+}
+
+/* MOBILE NAV */
+@media(max-width:768px){
+  nav{
+    position:absolute;
+    top:60px;
+    right:0;
+    background:#111;
+    flex-direction:column;
+    width:200px;
+    text-align:center;
+    transform:translateX(100%);
+    transition:0.3s;
+  }
+
+  nav.active{
+    transform:translateX(0);
+  }
+
+  nav a{
+    padding:15px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+  }
+
+  .hamburger{
+    display:block;
+  }
 }
 
 /* ===== HERO ===== */
@@ -76,118 +115,63 @@ nav a{
   align-items:center;
   flex-direction:column;
   text-align:center;
+  padding:0 20px;
 }
 
 .hero h1{
-  font-size:4rem;
   font-family:'Cormorant Garamond';
+  font-size:3rem;
 }
 
 .tagline{
+  color:var(--gold);
   font-size:0.7rem;
   letter-spacing:3px;
-  color:var(--gold);
   margin-top:5px;
-  opacity:0.8;
 }
 
 .divider{
-  width:60px;height:1px;
+  width:50px;
+  height:1px;
   background:var(--gold);
-  margin:20px auto;
+  margin:15px auto;
 }
 
 /* ===== CONTENT ===== */
 .content-wrapper{
-  max-width:1200px;
+  max-width:1100px;
   margin:auto;
-  padding:80px 20px;
+  padding:60px 20px;
   background:rgba(18,18,18,0.95);
 }
 
 .section-title h2{
   text-align:center;
   font-family:'Cormorant Garamond';
-  font-size:2.5rem;
+  font-size:2rem;
 }
 
-/* ===== MENU ===== */
-.menu-section{
-  max-width:900px;
-  margin:auto;
-}
-
-.category-label{
-  text-align:center;
-  color:var(--gold);
-  margin:50px 0 15px;
-  letter-spacing:4px;
-}
-
+/* MENU */
 .menu-item{
   display:flex;
   justify-content:space-between;
-  padding:18px 0;
+  padding:15px 0;
   border-bottom:1px solid rgba(255,255,255,0.1);
-  cursor:pointer;
-}
-.menu-item:hover{color:var(--gold);}
-
-/* ===== MODAL ===== */
-.modal{
-  position:fixed;
-  width:100%;height:100%;
-  background:rgba(0,0,0,0.8);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  opacity:0;
-  visibility:hidden;
-}
-.modal.active{opacity:1;visibility:visible;}
-
-.modal-content{
-  background:#1a1a1a;
-  padding:30px;
-  width:90%;
-  max-width:400px;
-  text-align:center;
-}
-.modal-content h3{
-  color:var(--gold);
-  font-family:'Cormorant Garamond';
-}
-.close-btn{
-  margin-top:20px;
-  cursor:pointer;
 }
 
-/* ===== REVIEWS ===== */
-.review-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-  margin-top:30px;
-}
+/* REVIEWS */
 .review{
   border:1px solid rgba(255,255,255,0.1);
-  padding:20px;
+  padding:15px;
+  margin-top:15px;
 }
 
-/* ===== CONTACT ===== */
-.contact{
-  margin-top:80px;
-  text-align:center;
-}
+/* CONTACT */
 .contact-box{
   border:1px solid rgba(255,255,255,0.1);
-  padding:30px;
+  padding:20px;
   margin-top:20px;
-}
-
-/* ===== MOBILE ===== */
-@media(max-width:768px){
-  .hero h1{font-size:2.5rem;}
+  text-align:center;
 }
 </style>
 </head>
@@ -199,12 +183,15 @@ nav a{
 
 <header>
   <div class="nav-content">
-    <div class="logo">RESTAURANT <span>NAME</span></div>
-    <nav>
+    <div class="logo">RESTO <span>NAME</span></div>
+
+    <nav id="nav">
       <a href="#menu">MENU</a>
       <a href="#reviews">REVIEWS</a>
       <a href="#contact">CONTACT</a>
     </nav>
+
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
   </div>
 </header>
 
@@ -216,93 +203,48 @@ nav a{
 
 <div class="content-wrapper">
 
-<!-- MENU -->
 <section id="menu">
-<div class="section-title"><h2>The Menu</h2></div>
+<div class="section-title"><h2>Menu</h2></div>
 
-<div class="menu-section">
+<div class="menu-item"><span>Paneer Tikka</span><span>₹220</span></div>
+<div class="menu-item"><span>Veg Biryani</span><span>₹260</span></div>
+<div class="menu-item"><span>Dal Makhni</span><span>₹240</span></div>
 
-<div class="category-label">Starters</div>
-<div class="menu-item" onclick="openModal('Paneer Tikka','Grilled paneer with spices')">
-<h3>Paneer Tikka</h3><span>₹220</span></div>
-
-<div class="menu-item" onclick="openModal('Veg Manchurian','Crispy balls in sauce')">
-<h3>Veg Manchurian</h3><span>₹180</span></div>
-
-<div class="category-label">Main Course</div>
-<div class="menu-item" onclick="openModal('Butter Paneer','Creamy tomato gravy')">
-<h3>Butter Paneer</h3><span>₹280</span></div>
-
-<div class="menu-item" onclick="openModal('Dal Makhni','Slow cooked lentils')">
-<h3>Dal Makhni</h3><span>₹240</span></div>
-
-<div class="menu-item" onclick="openModal('Veg Biryani','Aromatic rice')">
-<h3>Veg Biryani</h3><span>₹260</span></div>
-
-<div class="category-label">Desserts</div>
-<div class="menu-item" onclick="openModal('Gulab Jamun','Sweet syrup balls')">
-<h3>Gulab Jamun</h3><span>₹90</span></div>
-
-</div>
 </section>
 
-<!-- REVIEWS -->
 <section id="reviews">
 <div class="section-title"><h2>Reviews</h2></div>
 
-<div class="review-grid">
-<div class="review"><p>"Amazing food!"</p><h4>- Customer</h4></div>
-<div class="review"><p>"Loved the ambience."</p><h4>- Guest</h4></div>
-<div class="review"><p>"Highly recommended."</p><h4>- Foodie</h4></div>
-</div>
+<div class="review">"Amazing food experience!"</div>
+<div class="review">"Loved the ambience!"</div>
+
 </section>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
+<section id="contact">
 <div class="section-title"><h2>Find Us Here</h2></div>
 
 <div class="contact-box">
-<p>📍 Your Address Here</p>
-<p>📞 +91 00000 00000</p>
-<p>📧 contact@restaurant.com</p>
+📍 Your Address<br>
+📞 +91 00000 00000
 </div>
+
 </section>
 
 </div>
 
-<!-- MODAL -->
-<div class="modal" id="modal">
-<div class="modal-content">
-<h3 id="modal-title"></h3>
-<p id="modal-desc"></p>
-<div class="close-btn" onclick="closeModal()">CLOSE</div>
-</div>
-</div>
-
 <script>
-const images = [
+/* hamburger */
+function toggleMenu(){
+  document.getElementById("nav").classList.toggle("active");
+}
+
+/* background */
+const images=[
 'https://images.unsplash.com/photo-1504674900247-0877df9cc836',
-'https://images.unsplash.com/photo-1555396273-367ea4eb4db5',
-'https://images.unsplash.com/photo-1528605248644-14dd04022da1',
-'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4'
+'https://images.unsplash.com/photo-1555396273-367ea4eb4db5'
 ];
-
-function shuffleBackground(){
-  const random = images[Math.floor(Math.random()*images.length)];
-  document.getElementById("bg").style.backgroundImage = `url(${random})`;
-}
-
-shuffleBackground();
-
-/* modal */
-function openModal(title,desc){
-document.getElementById("modal-title").innerText=title;
-document.getElementById("modal-desc").innerText=desc;
-document.getElementById("modal").classList.add("active");
-}
-function closeModal(){
-document.getElementById("modal").classList.remove("active");
-}
+document.getElementById("bg").style.backgroundImage=
+`url(${images[Math.floor(Math.random()*images.length)]})`;
 </script>
 
 </body>
